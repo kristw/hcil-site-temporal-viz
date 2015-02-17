@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<title>DataKitchen User Manual - Task</title>
+</head>
+
+<body>
+
+<h1>Chapter 2: Task</h1>
+The tasks specify ways to modify the data. The buttons to run these tasks can be found in the "Task" menu.
+
+<h2><a name = "2.1">2.1 Map column</a></h2>
+This feature helps the users mapping the columns to be consistent with the <a href = "http://www.cs.umd.edu/hcil/lifeflow/manual/chapter1.html#1.4">format of LifeFlow</a>. Two different possible input data formats, single-event and multi-event per row, are supported by DataKitchen.
+<ul>
+<li>
+<p>Single-event per row: Each row contains the required information for one event only. In this case, the users have to specify the one-one mapping from the input columns to the required columns of LifeFlow.</p>
+
+<p>For example, the MRN "00003730" appears several times in the first column. Each of the three rows with MRN "00003730" corresponds one event, with the event name in the second column "Event Name". Therefore, the values in "MRN" correspond to "Record ID" in LifeFlow format. The values in "Event Name" correspond to "Event Type" in LifeFlow format. The users may pick the values in "Start Date/Time" or "End Date/Time" as the "Date and Time" in LifeFlow format and use the other as event attribute.</p>
+</li>
+
+<table border = "1">
+<tr>
+<td>MRN</td><td>Event Name</td><td>Start Date/Time</td><td>End Date/Time</td>
+</tr>
+<tr>
+<td>00003730</td><td>CREAT-</td><td>2007-05-09 02:29</td><td>2007-05-09 04:17</td>
+</tr>
+<tr>
+<td>00003731</td><td>CREAT-</td><td>2007-05-16 22:09</td><td>2007-05-17 01:08</td>
+</tr>
+<tr>
+<td>00003732</td><td>CREAT-</td><td>2007-05-09 17:55</td>
+</tr>
+<tr>
+<td>00003730</td><td>Radiology Contrast</td><td>2007-05-07 09:56</td><td>2007-05-07 10:24</td>
+</tr>
+<tr>
+<td>00003731</td><td>Radiology Contrast</td><td>2007-05-13 10:16</td>
+</tr>
+<tr>
+<td>00003732</td><td>Radiology Contrast</td><td>2007-05-07 14:28</td>
+</tr>
+<tr>
+<td>00003730</td><td>BL CREAT-H</td><td>2007-05-07 07:17</td><td>2007-05-07 07:38</td>
+</tr>
+<tr>
+<td>00003731</td><td>BL CREAT-H</td><td>2007-05-13 08:00</td><td>2007-05-07 08:25</td>
+</tr>
+<tr>
+<td>00003732</td><td>BL CREAT-H</td><td>2007-05-07 07:04</td><td>2007-05-07 07:45</td>
+</tr>
+</table>
+</br>
+
+<li>
+<p>Multi-event per row: Each row contains the required information for multiple events. In this more complicated case, The users have to specify which columns contain timestamps of events (e.g. V.Admin-Room-DtTm) and attributes (e.g. EMD.Combined).</p>
+
+<p>In this case, the row with MRN equalls "1" has the timestamps for "RegStartDtTm". "V.Admin-Room-DtTm", "Admin Date Time", and "DischargeDtTm". The column "MRN" is once again uses as "Record ID" as in LifeFlow. The column headers (e.g. "RegStartDtTm") are used as the values in the column "Event Type", and the values of corresponding header (e.g. "03/09/2011 01:39") are used in the column "Date and Time". The other three columns, "Clin3.DX", "EMD.Combined", and "Clin3.Bed-Location" are considered as possible attributes.</p>
+</li>
+<table border = "1">
+<tr>
+<td>MRN</td><td>Clin3.DX</td><td>EMD.Combined</td><td>RegStartDtTm</td><td>V.Admin-Room-DtTm</td><td>Admin Date Time</td><td>DischargeDtTm</td><td>Clin3.Bed-Location</td>
+</tr>
+<tr>
+<td>1</td><td>Fever</td><td>House, Gregory</td><td>03/09/2011 01:39</td><td>03/09/2011 06:21</td><td>03/09/2011 16:29</td><td>03/10/2011 02:28</td><td>LongStay</td>
+</tr>
+</tr>
+<td>2</td><td>Fever</td><td>Hettinger, Aaron</td><td>03/09/2011 09:57</td><td>03/09/2011 13:44</td><td>03/09/2011 15:14</td><td>03/09/2011 20:16</td><td>LongStay</td>
+</tr>
+<tr>
+<td>3</td><td>Chest pain</td><td>House, Gregory</td><td>03/09/2011 06:04</td><td>03/09/2011 16:07</td><td>03/10/2011 02:40</td><td>03/10/2011 08:22</td><td>ShortStay</td>
+</tr>
+</table>
+
+</ul>
+<h3>2.1.1 Single-event per row</h3>
+<ol>
+<li>Click the radiobuttons to properly arrange the mapping. The values will be mapped from the corresponding columns in the input data to the required columns of LifeFlow.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/SingleMapping_1_2.jpg" width="300">
+<p class="caption">Figure 2.1: The procedure of mapping data with single event per row.</p>
+</div>
+
+<h3>2.1.2 Multi-event per row</h3>
+The mapping dialog contains three tabs for "Record ID/Record Attributes", "Event", and "Event Attributes". Each tab is used to adjust the corresponding settings on how the columns are mapped.
+<ol>
+<li>Select the column which contains record id in the left half of the "Record ID/Record Attributes" tab.</li>
+<li>(Optional) Select the column which contains record attributes in the right half of the "Record ID/Record Attributes" tab.</li>
+<li>In the "Event" tab, select the column(s) which contains the timestamps of that event. Note that after mapping, the event type will be the title of the column and the timestamp will be the values in that column. Also, multiple events can be selected from the list.</li>
+<li>(Optional) In the "Event Attributes" tab, select from the left list the event to which the users want to add attributes. Then, select attribute(s) from the right list. Note that multiple attributes can be selected. Repeat the procedure to add attributes to the next event.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/MultiMapping_1_2.jpg" width="300">
+<img src="figure/MultiMapping_3.jpg" width="300">
+<img src="figure/MultiMapping_4.jpg" width="300">
+<img src="figure/MultiMapping_5.jpg" width="300">
+<p class="caption">Figure 2.2: The procedure of mapping data with multiple events per row.</p>
+</div>
+
+<h2><a name = "2.2">2.2 Handle empty cells</a></h2>
+Missing values in the data must be handled properly before loading into LifeFlow. Failure to remove the empty cells in the first three column of LifeFlow input data set (e.g. "Record ID", "Event Type", and "Date and Time") in the data will result in unexpected behavior in LifeFlow. In the Preview Panel the missing values are colored in yellow, the users may decide how the missing values should be handled. Note that the values of "Event Attributes" can be empty, since not all events are linked with some attributes.
+
+<div class="figure half">
+<img src="figure/EmptyCell.jpg" width="300">
+<p class="caption">Figure 2.3: The dialog to handle empty cells.</p>
+</div>
+
+<h3>2.2.1 Do nothing</h3>
+Default setting, the value remains empty.
+<ol>
+<li>Select "Do nothing" from the pull-down menu.</li>
+<li>Click the button "OK".
+</ol>
+
+<h3>2.2.2 Fill in with value</h3>
+The empty columns are filled with the value specified by the user.
+<ol>
+<li>Select "Fill in with value" from the pull-down menu.</li>
+<li>Type the preferable value in the textfiels.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<h3>2.2.3 Remove row</h3>
+The rows which contain empty columns are removed.
+<ol>
+<li>Select "Remove row" from the pull-down menu.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<h2><a name = "2.3">2.3 De-identify</a></h2>
+Since the data may contain information which should not be disclosed, the users can de-identify the data by adding/subtracting values from the columns.
+<ol>
+<li>Check/Un-check the columns to be de-identified. </li>
+<li>Make sure the type (e.g. Time or Integer) shows correctly in the pull-down menu. Change it in case it fails to detect the type correctly.</li>
+<li>(Optional) Type the number of the offset value in the text field. The default value is a random number. In the cases where the users may want to revert the de-identification, the users may use their preferable offset.</li>
+<li>Click the button "OK".</li>
+<li>Click the button "OK" in the confirmation dialog.</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/DeID_1.jpg" width="300">
+<img src="figure/DeID_2.jpg" width="300">
+<img src="figure/DeID_3_4.jpg" width="300">
+<img src="figure/DeID_5.jpg" width="300">
+<p class="caption">Figure 2.4: The procedure of de-identification.</p>
+</div>
+
+<h2><a name = "2.4">2.4 Categorize</a></h2>
+Sometimes, different aliases are used for similar concept. Using the categorizing feature, the users can categorize all the aliases into one category.
+<ol>
+<li>Select the column from the pull-down menu the column which contains the values to be categorized. After selecting, all existing values will show in the list below.</li>
+<li>Type the new category name for the values the users want to categorize in the text field and click the button "Create". The category can be removed by clicking the button "Remove".</li>
+<li>Select from the list the values to be included in the category. Click the triangle pointing right to include them. The value can be removed from the category by click the triangle pointing left.</li>
+<li>Repeat above steps to categorize values in another column.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/Categorize_1.jpg" width="300">
+<img src="figure/Categorize_2.jpg" width="300">
+<img src="figure/Categorize_3.jpg" width="300">
+<img src="figure/Categorize_5.jpg" width="300">
+<p class="caption">Figure 2.5: The procedure of categorizing.</p>
+</div>
+
+Also, the users can change the name of an event using categorizing. Simple categorize that original event as an event with another name.
+
+<h3>2.4.1 Select values through matching</h3>
+All the values containing certain text can be selected at once by matching.
+<ol>
+<li>Type the text to match in the textfield and click the button "Match".</li>
+<li>The values which match the text will be selected and highlighted in green. Note that the users can still un-select values or include more values not matching the text in the category. The matched but not selected values are highlighted in yellow.</li>
+</ol>
+
+<h2><a name = "2.5">2.5 Filter</a></h2>
+In some cases the users may want to filter the data with certain constraint. DataKitchen supports filtering the data with specific time range.
+<ol>
+<li>Type the time ranges in the textfields in the dialog. The default values of the textfields are the minimum (e.g. earliest) and maximum (e.g. latest) time in each column containing timestamps.</li>
+<li>Click the button "OK".</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/Filter_1_2.jpg" width="300">
+<p class="caption">Figure 2.6: The procedure of filtering.</p>
+</div>
+
+</body>
+
+</html>

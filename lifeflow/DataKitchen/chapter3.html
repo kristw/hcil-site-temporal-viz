@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<title>DataKitchen User Manual - Control of the instructions</title>
+</head>
+
+<body>
+
+<h1>Chapter 3: Control of the instructions</h1>
+<p>Everytime the users performed some task (e.g. modification to the data), the instruction corresponds to the task are kept in the Instruction Panel as a list of buttons. Clicking the buttons shows the detail about that instruction, which is also kept in the log file. To avoid repeating the tedious operation of converting similar data (e.g. the data obtained in different years), a recipe can be created by the users. A Recipe contains a list of instruction, which can be opened and applied easily. In the bottom of Instruction Panel, four buttons are used to re-do/un-do the changes. The instruction is colored in yellow, green, and gray respectively when it is already applied, currently the applied last instruction, or not applied. Note that un-do a change does not remove the instruction from the list of instructions. Un-used instructions (e.g. gray ones) will only be removed from the list when a new instruction is being added to the list.</p>
+
+<p>When the users performed another task, the instructions in gray will be removed. The newly performed task will be the new last executed task.</p>
+
+<h2><a name = "3.1">3.1 Un-do/Re-do</a></h2>
+The four buttons in the bottom of Instruction Panel are used to control which instructions are used. From left to right, the buttons are used to revert to the original, un-do last instruction, re-do next instruction, and re-do all instructions.
+
+<div class="figure half">
+<img src="figure/Instruction_Buttons.jpg" width="200">
+<p class="caption">Figure 3.1: The buttons to control the instructions.</p>
+</div>
+
+<h2><a name = "3.2">3.2 Recipe</a></h2>
+Recipe file contains the required information to bring back the previously saved instructions. The loaded instructions will show in the Instruction Panel and the users may use the buttons controlling the un-do/re-do features to go through the instructions.
+
+<h3>3.2.1 Save recipe</h3>
+The list of instructions will be saved into a file as a recipe. All instructions (e.g. green, yellow, and gray) will be saved.
+<ol>
+<li>Click the button "Save...".</li>
+<li>In the dialog, choose a file, or type the file name in the text field. Click "Save".</li>
+</ol>
+
+<h3>3.2.2 Open recipe</h3>
+After opening the recipe, the last executed task will be the first task in the list, which is "Login" and involves no modification at all. The users have to click on the "re-do next" or "re-do all" buttons to perform the tasks and see the resultl of modification in the Preview Panel. Also note that the users must save the data file to actually modify the file.
+<ol>
+<li>Click the button "Open...".</li>
+<li>In the dialog, choose a file, or type the file name in the text field. Click "Open".</li>
+</ol>
+
+</body>
+
+</html>

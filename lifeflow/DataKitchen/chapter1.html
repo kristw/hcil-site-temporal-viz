@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<title>DataKitchen User Manual - Overview</title>
+</head>
+
+<body>
+
+<h1>Chapter 1: Overview</h1>
+
+<h2><a name = "1.1">1.1 Design</a></h2>
+<p>DataKitchen is designed for the conversion of the original data set into the format LifeFlow uses. Check out <a href = "http://www.cs.umd.edu/hcil/lifeflow/manual/chapter1.html#1.4">the page</a> for the details of LifeFlow format.</p>
+
+<p>The original data file can be too large to be loaded into memory and apply changes efficiently. Therefore, DataKitchen loads only a small fraction (e.g. the first 1000 rows) of the input data to create a "preview" of the data and the modification being made. The users can apply changes and get a glance at the result in the preview. The actual changes, which applies to all the rows in the input file, are being made when the users save the file.</p>
+
+<h2><a name = "1.2">1.2 Login</a></h2>
+<p>After executing DataKitchen, a dialog will prompt the users to enter their name in the textfield. The user name will be logged in the log file, which keeps the modifications being made to the original data. Type in the user name in the textfield and click the button "OK" will bring up the main window of DataKitchen.</p>
+
+<div class="figure half">
+<img src="figure/Login.jpg" width="400">
+<p class="caption">Figure 1.1: The login dialog.</p>
+</div>
+
+<div class="figure half">
+<img src="figure/Overview.jpg" width="400">
+<p class="caption">Figure 1.2: The overview of the panels in DataKitchen.</p>
+</div>
+
+<h2><a name = "1.3">1.3 Preview Panel</a></h2>
+In the Preview Panel shows the preview created after loading the input file. The preview is shown as a table with column names on top and each row representing an instance of original input. Columns are colered in yellow when blank. The lable on the tab shows the file name and in the bottom status bar shows the number of rows in the original input data file.
+
+<h2><a name = "1.4">1.4 Instruction Panel</a></h2>
+Each change to the original data is considered to be an "instruction". The users can see the all the modifications being made to the data in the Instruction Panel as a list of instructions.
+
+<h2><a name = "1.5">1.5 Provenance Panel</a></h2>
+<p>Since the data may come from various data source, information about the data itself is kept for the users to check later on. In the Provenance Panel, the owner, source, date, and last modifying date can be edited by the users. The users are also suggested to put down their comments on the data. Though the meta-data about the data is not required to enable the conversion of data, it can be helpful to organize many data files the users may have.</p>
+
+<p>The file extension used by the provenance file is .prov. DataKitchen will load automatically < data file name >.prov, or create the file if not exist. It is suggested that the provenance file being passed along with the data file when the users share the data file with other users.</p>
+
+<p>To change the values in the fields, simple type the information and click the "Save" button.</p>
+
+<h2><a name = "1.6">1.6 Open and save data files</a></h2>
+<p>The button to open/save the data file can be found in the File menu on the menu bar. Following "File->Open File..." and "File->Apply and Save As..." will bring up a dialog respectively to open and save data file.</p>
+<h3>1.6.1 Open data file</h3>
+<ol>
+<li>Select the file or type in the file name in the textfield. When a file is selected, the contents of the first ten rows will show in the bottom of the dialog.</li>
+<li>Select the separater between columns from the pull-down menu. Default is tab.</li>
+<li>Check/Un-check "First row is column name". When checked, the value in the first row will be treated as the name of the columns.</li>
+<li>Select proper time format from the pull-down menu, or click the radiobutton and type the format in the textfield.</li>
+<li>Click the button "Open".</li>
+</ol>
+Note that the settings are crucial to the conversion of data file.
+
+<div class="figure half">
+<img src="figure/Open_1.jpg" width="300">
+<img src="figure/Open_2.jpg" width="300">
+<img src="figure/Open_3.jpg" width="300">
+<img src="figure/Open_4.jpg" width="300">
+<img src="figure/Open_5.jpg" width="300">
+<p class="caption">Figure 1.3: The procedure of openning a data file.</p>
+</div>
+
+<h3>1.6.2 Save data file</h3>
+DataKitchen will save the modified data file into the format LifeFlow supports. Note that the modification to the data will NOT be made until the data file is saved.
+<ol>
+<li>Select the file or type in the file name in the textfield.</li>
+<li>Click the button "Save".</li>
+</ol>
+
+<div class="figure half">
+<img src="figure/Save_1.jpg" width="300">
+<img src="figure/Save_2.jpg" width="300">
+<p class="caption">Figure 1.4: The procedure of saving a data file.</p>
+</div>
+
+</body>
+
+</html>
