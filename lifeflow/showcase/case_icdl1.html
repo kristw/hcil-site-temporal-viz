@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/lifeflow-casestudy.css"/>
+	<style type="text/css">
+		#nav a {background: none; border:none; text-decoration: none; margin: 0 5px; padding: 3px 5px;  }
+		#nav a.activeSlide { border: 1px solid #ccc; background: #dedede;  }
+		#nav a:focus { outline: none; }
+	</style>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../js/jquery.cycle.all.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('.slideshow').cycle({
+				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+				timeout: 0,
+				speed: 'fast',
+				next:   '#nextLink', 
+			    prev:   '#prevLink',
+			    pager:  '#nav'
+			});
+		});
+		
+		//* For debugging, jump to the specified slides
+		$('.slideshow').cycle(0);
+	</script>
+	
+	<title>LifeFlow Case Study: ICDL Web Logs</title>
+</head>
+
+<body>
+
+<div class="wrap">
+	<div align="center">
+		<p>
+		<h2>LifeFlow Case Study: How do people read children books online?</h2> 
+		Slide:
+		<span id="nav"></span>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" id="prevLink">Previous</a> | <a href="#" id="nextLink">Next</a>
+		</p>
+	</div>
+	
+	<div class="slideBound">
+		<div class="slideshow">
+
+			<div>
+				<div class="textBox">
+				<h3>Introduction</h3>
+				<p>
+					We looked at the Apache web logs from the 
+					<a href="http://en.childrenslibrary.org/">International Children's Digital Library</a>
+					to analyze how people read children books online. <br>
+					This sample dataset was taken from the period Jul 01-07, 2011.
+					The original size of the dataset was about 1GB.
+				</p>
+				<p>
+					We filtered the log entries to select only the http requests to access an actual book page:<br>
+					<pre>"http://www.childrenslibrary.org/icdl/BookPage"</pre>
+					Each request contains a query string behind the url, such as<br> 
+					<pre>"bookid=amrdima_00310002&pnum1=6&pnum2=7&twoPage=true&lang=English&ilang=English"</pre>
+					We parsed the page number and book id from this query string then group the http requests by IP address and book id into records.<br>
+					Each record represents how each IP address (user) read one book, or a <i>book session</i>. 
+					
+					<pre>
+IP address + book id		Page 	Time
+133.37.60.191_radjese_00380046	2	2011-06-30 05:01:06
+133.37.60.191_radjese_00380046	1	2011-06-30 05:01:14
+133.37.60.191_radjese_00380046	2	2011-06-30 05:01:20
+133.37.60.191_radjese_00380046	4	2011-06-30 05:01:25
+133.37.60.191_radjese_00380046	6	2011-06-30 05:01:27</pre>
+					
+					We included only the first 30 pages in the dataset.  
+					The processed dataset has 7,022 records and 57,709 rows in total.
+				</p>  
+				</div>
+			</div>
+			<div>
+				<img src="img/case_icdl1/1_readingForward.png">
+				<div class="floatBox" style="right: 25px; top:160px;">
+					We encoded the page number using color gradient<br> 
+					from blue <svg width="10" height="10"><rect width="10" height="10" style="fill:rgb(66, 146, 198)"></svg> 
+					to red <svg width="10" height="10"><rect width="10" height="10" style="fill:rgb(165, 15, 21)"></svg>.<br>
+					
+					<p>
+					Because people also can the books in two mode:<br> 
+					single-page (1,2,3, ...)<br> 
+					and double-page (1,2,4,6, ...),<br>
+					we hid the odd pages.
+					</p>
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/2_readingForward_annotated.png">
+				<div class="floatBox" style="right: 25px; top:350px; width: 400px;">
+					We found that people started their reading on different pages.<br>
+					Some started from the first page but some jumped into the later pages,
+					probably skipping the empty pages in the beginning.
+					<p>
+						The height of the bars shows that people started on the earlier pages more than the later pages. 
+					</p>
+					<p>
+						The color bars show a smooth gradient meaning that people mostly read in order.
+						(Remember that the color coding is a gradient from blue to red.)
+					</p>
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/4_alignedBySecond_annotated.png">
+				<div class="floatBox" style="left: 320px; top:160px; width: 200px;">
+					We aligned by the second page to see how people read from the second page on.
+					<p>
+						The decreasing height of the bars as time went by shows that people gradually dropped out while reading.  
+					</p>
+					<p>
+						The little long lines that split from the main trend in each step tell that some readers flipped back to the previous page before continued reading.
+						The color changed to a little bit darker color (previous page) then changed back to the brighter colors (continue reading).
+					</p>
+					<p>
+						We also noticed some long patterns before the second page.  
+					</p>
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/6_readingBackward_annotated.png">
+				<div class="floatBox" style="left: 320px; top:160px; width: 300px;">
+					We zoomed into the mysterious sequence from the previous screen and saw people reading backwards.
+					(The color changes from red to blue instead of blue to red.)
+					<p>
+						We were curious so we selected them to see more detail.
+					</p>
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/8_readingBackward2_annotated.png">
+				<div class="floatBox" style="left: 320px; top:160px; width: 200px;">
+					In the detail view, we saw one reader started reading from page 30 and flipped back all the way to page 2.
+					Another reader read from page 4 to the end and flipped back all the way.
+					And many more cases.
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/11_table.png">
+				<div class="floatBox" style="left: 340px; top:490px; width: 230px;">
+					We checked the attributes of these books. 
+					They are in English and Spanish (left-to-right languages).<br>
+					So there should not be any confusion about reading direction.
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/12_measureForward.png">
+				<div class="floatBox" style="right: 100px; top:240px; width: 230px;">
+					To investigate further, we measured the time from page 2 to page 30 when users accessed the pages in forward direction. 
+					<p>
+						The mean and median time were 25:02 and 4:45 minutes, respectively.
+					</p>
+				</div>		
+			</div>
+			<div>
+				<img src="img/case_icdl1/13_measureBackward.png">
+				<div class="floatBox" style="right: 400px; top:255px; width: 250px;">
+					We also measured the time from page 30 to page 2 when users accessed the pages in backward direction. 
+					<p>
+						The mean and median time were 33 and 24 seconds, respectively, which is approximately one second per page.
+					</p>
+					<p>
+						Seems like they were not reading backwards, just flipping.
+					</p>
+				</div>		
+			</div>
+			<div>
+				<div class="textBox">
+				<h3>Conclusion</h3>
+				<p>
+					We dug deeper into several records with backward access one-by-one and hypothesized a few possible scenarios. 
+					<ul>
+						<li>
+							<b>Finished reading a part of the book</b>:
+							For example, one reader read from page 10 to 18 which is exactly one chapter of the book,
+							then flipped back to page 1 and did not have any interaction after that.
+						</li>
+						<li>
+							<b>Shelf books</b>:
+							ICDL has a membership system, which a member can store books on his/her virtual shelf for reading later.
+							The system also remembers the last page read by the member.  
+							However, we assumed that some members might open the book and find it at page 30, 
+							so they tried to flip it back to the first page and start reading again from the beginning.  
+						</li>
+						<li>
+							<b>Parent preview</b>:
+							Some users read a few pages then flipped back to the beginning and started reading from the beginning.
+							We assumed that this is a behavior of parents selecting books for their children.
+							They flipped a few pages to check that it is suitable then went back to the beginning to read it.   
+						</li>
+					</ul>
+					From these three possible scenarios,
+					the users seem to depend heavily on the page-by-page (previous/next button) navigation.
+					To change from page 30 back to page 1, they went to the previous page 30 times instead of using other controls that could let them jump to page 1 faster.
+					This could be because the users could use their arrow keys to go to previous/next page, which was convenient for them, so they kept pressing the arrow keys,
+					or the users did not know how to jump back to the first page directly. 
+				</p>
+				<p>
+					However, to find the real explanation why many people access the online children books backwards or does the navigation need to be improved
+					will require a further user study, which is beyond the scope of this case study.
+					Therefore, we would like to take a step back and summarize what we learned from the ICDL web logs so far using LifeFlow.
+				</p>
+				<p>
+					LifeFlow showed potential for helping the ICDL administrator understand how people are accessing the online books.
+					It highlighted the users' reading behaviors from the majority that read in order, 
+					the readers that skipped the the blank early pages right to the content,
+					the readers that flipped back and continue reading, to the readers that flipped backwards all the way back to the first page. 
+					By understanding these behaviors better, the administrator can improve the website to suit the readers better.  
+				</p>  
+				</div>
+			</div>
+
+		</div>	
+	</div>
+	
+	<div align="center">
+		<p>
+			<span class="small quiet">
+				This case study was conducted by Krist Wongsuphasawat and Hsueh-Chien Cheng under the supervision of Ben Shneiderman and Catherine Plaisant<br>
+				We appreciated the feedback from Anne Rose of the ICDL. 
+				<br>
+				Last updated: Nov 22, 2011
+			</span>
+		</p>
+	</div>
+</div>
+	
+</body>
+
+</html>

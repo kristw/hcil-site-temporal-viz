@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../../css/lifeflow-casestudy.css"/>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="../../js/jquery.cycle.all.js" language="JavaScript" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		// Begin parameters
+		var caseID = "icdl";
+		var numSlides = 11;
+		var title = "How do people read children books online?";
+		// End parameters
+	
+		$(document).ready(function() {
+			document.title = "LifeFlow Case Study: "+title;
+			$("#titleLabel").append(title);
+			$("#pdfLink").html('<a href="lf_case_'+caseID+'.pdf">PDF</a>');
+			$("#pptLink").html('<a href="lf_case_'+caseID+'.ppt">PowerPoint</a>');
+			
+			var deck = $("#slidedeck");
+			for(var i=1;i<=numSlides;i++){
+				var pageNo = i<10?("0"+i):i;
+				deck.append('<div><img src="img/Slide'+pageNo+'.png"/></div>');
+			}
+			
+		    deck.cycle({
+				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+				timeout: 0,
+				speed: 'fast',
+				next:   '#nextLink', 
+			    prev:   '#prevLink',
+			    pager:  '#nav'
+			});
+		});
+	</script>
+	
+	<title>
+		LifeFlow Case Study: 
+	</title>
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27380042-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+	<!-- End Google Analytics -->
+</head>
+
+<body>
+
+<div class="wrap">
+	<div align="center">
+		<p>
+		<h2><a href="http://www.cs.umd.edu/hcil/lifeflow">LifeFlow</a> Case Study: <span id="titleLabel"></span></h2> 
+		Slide:
+		<span id="nav"></span>
+		&nbsp;&nbsp;&nbsp;
+		<a href="#" id="prevLink">Previous</a> | <a href="#" id="nextLink">Next</a>
+		</p>
+	</div>
+	
+	<div class="slideBound">
+		<div id="slidedeck" class="slideshow">
+		</div>	
+	</div>
+	
+	<div align="center">
+		<p>
+			These slides are also available in <span class="downloadLink" id="pdfLink">PDF</span> and <span class="downloadLink" id="pptLink">PowerPoint</span>. 
+		</p>
+		<p>
+			<span class="small quiet">
+				LifeFlow is Krist Wongsuphasawat's dissertation work under the supervision of Ben Shneiderman and Catherine Plaisant.
+				Please visit the <a href="http://www.cs.umd.edu/hcil/lifeflow/">LifeFlow website</a> for more information.
+			</span>
+		</p>
+	</div>
+</div>
+	
+</body>
+
+</html>
