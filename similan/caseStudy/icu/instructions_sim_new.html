@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<link href="http://www.cs.umd.edu/hcil/_styles/screen.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.cs.umd.edu/hcil/_styles/menu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.cs.umd.edu/hcil/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+<title>Finding Patients Who Were Transferred from ICU to Floor and Back to ICU within 2 Days</title>
+
+<link rel="stylesheet" type="text/css" href="../../css/instructions.css"/>
+
+<body>
+<div align="center">
+	<table id="contentBox">
+		<tr><td class="normalText">
+		
+		<h2>Finding Patients Who Were Transferred from ICU to Floor and Back to ICU within 2 Days</h2>
+		
+		<p>
+		This page provides instructions on how to find patients who were transferred from ICU (Intensive Care Unit) to Floor (Normal Bed) and transferred back to ICU within 2 days using Similan (http://www.cs.umd.edu/hcil/similan). You must have Similan installed on your machine before performing this task. These instructions must be followed exactly.  
+		</p>
+		
+		<p>
+		<b>Caution:</b> Make sure that your data is in the correct LifeLines2/Similan format.
+		</p>
+		
+		<p>
+		
+		<h3>1. Load the data file</h3> 
+		<p>
+			1.1 Click on "File" from the menu and click on "Load Data...". A dialog box will appear. 
+			<br>
+			1.2 Select the data file and click on "Load".
+			<div align="center">
+				<img src="img/s_open.png"/>
+			</div>
+		</p>
+	 
+		<h3>2. Adjust the time reference point (Align) to the time that patients went to floor</h3>
+		<p>
+		Click on the drop-down list under "Align by" label and select "Floor". We then call "Floor" the <i>sentinel</i> event. 
+			<div align="center">
+				<img src="img/s_align.png"/>
+			</div>
+		</p>
+		
+		<h3>3. Draw the events on the timeline</h3>
+		<p>		 
+		3.1 Click on "edit". 
+		<br>
+		3.2 Click on "Create new target". 
+		<br>
+		3.3 Select category and click on the "Add" button. The cursor will change to magic wand.
+		<br>
+		3.4 Click on the timeline to place event at that location.
+		In this case, place "Floor" at time zero and "ICU" before "Floor" 
+		and another ICU at one day after time zero (because it is the middle of 2 days).
+			<div align="center">
+				<img src="img/s_target.png"/>
+			</div>
+		</p>
+		
+		<h3>4. Set the range</h3>
+		<p>
+		Draw a selection on the top of the timeline to specify range of interest (indicated by red line). 
+		In this case, set the range to 15 days before Floor until 2 days after Floor.
+			<div align="center">
+				<img src="img/s_scope.png"/>
+			</div>
+		</p>
+		 
+		<h3>5. Search</h3>
+		<p>
+		Click on "Search" and you will get the results. 
+		The most similar records (by default definition of similarity) are on the top.
+			<div align="center">
+				<img src="img/s_search.png"/>
+			</div>
+		</p>
+		
+		<h3>6. Filter</h3>
+		<p>
+		To increase the precision of the result, we can set the filters. 
+		<br>
+		6.1 Click on "Filters" tab.
+		<br>
+		6.2
+		There must be at least two ICU in this range.
+		So, set the minimum value of the slider "Number of ICU" to 2.  
+		<br>
+		6.3 Click on "Apply Filter".
+			<div align="center">
+				<img src="img/s_filter.png"/>
+			</div>
+		</p>
+		
+		<h3>7. Done</h3>
+		<p>
+		This is the result. 
+		In this example, the top 7 patients from 244 patients were transferred from ICU to floor and transferred back to ICU within 2 days.
+			<div align="center">
+				<img src="img/s_result.png"/>
+			</div>
+		</p>
+		
+		<p>
+		<b>Note:</b> If any problem persists, please contact Krist (kristw at cs.umd.edu) for technical support.
+		</p>
+		
+		<br><br>
+
+		</td></tr>
+	</div>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<link href="http://www.cs.umd.edu/hcil/_styles/screen.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.cs.umd.edu/hcil/_styles/menu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.cs.umd.edu/hcil/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.cs.umd.edu/hcil/_scripts/hcil.js"></script>
+<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="js/lightbox.js"></script>
+
+<title>Lifelines2</title>
+
+<!-- highlight active area -->
+<script type="text/javascript">
+var active_page='research';
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27380042-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<style type="text/css">
+.style1 {
+				text-align: center;
+}
+.style2 {
+				text-align: left;
+				vertical-align: middle;
+}
+.style3 {
+				text-align: left;
+}
+</style>
+</head>
+
+<body onload="ds_onstate();">
+
+<!-- banner -->
+<!--#include virtual="/hcil/_includes/banner.html"-->
+
+<!-- Content starts here -->
+
+<div id="content-wrap" class="one-col">
+ <div id="wrap">
+  <div id="content">
+   <div id="main">
+    <h1 align="center" style="margin-bottom: 0"><font color="#000000"><em>Lifelines2</em>:  Discovering Temporal Categorical Patterns Across Multiple Records</font></h1>
+	<h1 align="center" style="margin-top: 0; margin-bottom: 0;">
+	<font color="#000000">&nbsp;</font></h1>
+	<p align="center" style="margin-top: 0;">
+	<a href="images/title.png">
+	<img src="images/title.png" width="708" height="571" /></a></p>
+	<h2><font color="#336699">Project Description</font> </h2>
+	<p>Electronic health records (EHRs) contain a wealth of information.&nbsp;
+Categorical event data such as complaints, diagnoses, treatments, etc., are
+important, and play important roles in health providers decision making.&nbsp;
+However, past research efforts have been focused on numerical data and
+single-record visualization techniques.&nbsp; Discovering patterns of
+categorical events across multiple records are supported in limited ways.</p>
+	<p>Lifelines2 is an interactive visualization tool for visualizing temporal
+categorical data across multiple records.&nbsp; The goal of the project is to
+enable discovery and exploration of patterns across these records to support
+hypothesis generation, and finding cause-and-effect relationships in a
+population.&nbsp; These tasks are not&nbsp; specific to the medical domain, but
+we were first motivated by EHRs.</p>
+	<h2><font color="#336699">Features</font></h2>
+	<p><font color="#000000">In Lifelines2, we advocate a framework of simple
+    operators to allow users to manipulate multiple records simultaneously to
+    understand relative temporal relationships across records.&nbsp; The three
+    operators are Align, Rank, and Filter, and we affectionately call it the ARF
+    framework.&nbsp; Alignment forces every record to be aligned by a certain
+    feature (e.g. 3rd Heart Attack) so the events that occur prior to and after
+    the feature can be compared easily.&nbsp; Rank and Filter are traditional
+    operators analysts are familiar with, and they augment the Align offers.&nbsp; 
+	In addition, analysts can use temporal summaries to view distribution of 
+	multiple event types over time.&nbsp; Temporal summaries augment filter by 
+	allowing temporal constraints to be specified.&nbsp; Temporal summaries also 
+	allow multiple groups of records to be compared.</font></p>
+	<table style="width: 98%">
+					<tr>
+									<td colspan="3" class="style1">
+									<a href="images/process1.png">
+									<img alt="A" src="images/process1.png" width="829" height="215" /></a></td>
+					</tr>
+					<tr>
+									<td class="style3" style="width: 462px">1.&nbsp;
+									<font size="1">377 patient records are shown 
+									in the main visualization.&nbsp; These 
+									patients had been administered radiology 
+									contrast.&nbsp; Physicians are interested in 
+									patients that have high creatinine readings 
+									within 2 weeks after the administration of 
+									contrast.</font></td>
+									<td class="style3" style="width: 410px">2. <font size="1">
+									Every patient's 1st Radiology Contrast event 
+									(yellow triangles) is brought on the same 
+									vertical line, allowing analysts to view 
+									creatinine readings before/after the 
+									alignment quickly and perform relative 
+									comparisons.</font></td>
+									<td class="style3" style="width: 568px">3.&nbsp; 
+									<font size="1">Rank is applied to bring 
+									patients with the most number of creatinine 
+									high (CREAT-H) readings up top for analyses.</font></td>
+					</tr>
+	</table>
+	<table style="width: 100%">
+					<tr>
+									<td class="style1" colspan="2">
+									<a href="images/process2.png">
+									<img alt="" src="images/process2.png" width="573" height="207" /></a></td>
+					</tr>
+					<tr>
+									<td style="width: 475px">4.&nbsp;
+									<font size="1">Temporal summaries can be 
+									brought forth to see distribution of 
+									multiple events over time.</font></td>
+									<td>5.&nbsp; <font size="1">A final zoom 
+									into the timeline allows analysts to examine 
+									the events in detail.</font></td>
+					</tr>
+	</table>
+	<p>&nbsp;</p>
+	<p>Lifeliens2 is primarily designed for categorical point events, but
+    analysts can add intervals of validity to visually remind them of implicit
+    durations to aid their decision-making process.</p>
+	<br />
+<!-- 	<p align="center">
+	<img border="0" src="images/old%20iamges/IV-comparison.png" width="700" height="135"></p>
+ -->	<h2>&nbsp;</h2>
+	<h2><font color="#336699">Video Demonstrations</font></h2>
+	<table style="width: 101%; height: 472px" align="center">
+					<tr>
+									<td>
+									<h3 class="style1"><b>Title Screen&nbsp;</b></h3>
+									</td>
+									<td style="width: 353px" class="style1">
+									<h3><b>Description</b></h3>
+									</td>
+									<td colspan="2">
+									<h3><b>Format/Resolution</b></h3>
+									</td>
+					</tr>
+					<tr>
+									<td rowspan="4" style="width: 219px">
+									<p align="center" style="word-spacing: 0; line-height: 100%; margin-top: 0; margin-bottom: 0">
+									<a href="videos/Lifelines2-(Contrast-Creatinine)-11-10-08_flash/full(1024x768)/index.htm">
+									<img border="0" src="videos/Lifelines2-(Contrast-Creatinine)-11-10-08_flash/demo(11-10-2008)-screen.jpg" width="260" height="207"></a>
+									<p align="center" style="word-spacing: 0; line-height: 100%; margin-top: 0; margin-bottom: 0">(<a href="videos/Lifelines2-(Contrast-Creatinine)-11-10-08_flash/full(1024x768)/index.htm">click
+            to view in 1024x768</a>)</td>
+									<td rowspan="4" style="width: 353px">
+									<h4 style="margin: 0" align="left"><b>Medical Scenario:</b></h4>
+									<p style="margin: 0" align="left">Some small percentage of
+            population (1%-7%) experience reduced renal function after
+            infusion of radiographic contrast material such as iodine-based
+            agents.&nbsp; To
+            monitor patients' renal status, serum creatinine value in blood is
+            tested.&nbsp; High creatinine readings indicates reduction in renal
+            function.</p>
+									<p style="margin: 0" align="left">&nbsp;</p>
+									<h4 style="margin: 0" align="left"><b>Demo Summary:</b></h4>
+									<p style="margin: 0" align="left">This demonstration shows how to
+            use the main features of Lifelines2 to find patients who experience
+            reduced renal function as a result of adverse radiology contrast procedures.</td>
+									<td class="style1" colspan="2">4 minutes 58 seconds</td>
+					</tr>
+					<tr>
+									<td style="width: 70px" rowspan="2">
+									<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">
+									<img border="0" src="images/icons/flash_icon.jpg" width="28" height="28">&nbsp;</p>
+									<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">Flash
+            						<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">(.swf)</td>
+									<td class="style2">
+									<a href="videos/Lifelines2-(Contrast-Creatinine)-11-10-08_flash/full(1024x768)/index.htm">1024x768</a></td>
+					</tr>
+					<tr>
+									<td style="height: 101px" class="style3">
+									<a href="videos/Lifelines2-(Contrast-Creatinine)-11-10-08_flash/reduced(800x600)/index.htm">800x600</a></td>
+					</tr>
+					<tr>
+									<td style="height: 12px" colspan="2"></td>
+					</tr>
+					<tr>
+									<td class="style1" style="width: 219px" rowspan="4">
+									<a href="http://www.cs.umd.edu/hcil/lifelines2/videos/Lifelines2-(HIT)-2009-05-10_flash/full(1024x768)/HIT(2009-05-10)(1024x768).htm">
+									<img alt="" src="videos/HIT(2009-05-10)titleScreen.jpg" width="262" height="193" /></a><br />
+									(<a href="http://www.cs.umd.edu/hcil/lifelines2/videos/Lifelines2-(HIT)-2009-05-10_flash/full(1024x768)/HIT(2009-05-10)(1024x768).htm">click
+            to view in 1024x768</a>)</td>
+									<td style="width: 353px" rowspan="4">
+									<h4 style="margin: 0" align="left"><b>Medical Scenario:</b></h4>
+									<p style="margin: 0" align="left">Heparin-induced thrombocytopenia 
+			(HIT) is characterized by &gt;50% of platelet counts within 5-9 days 
+			after exposure to heparin.&nbsp; This is a dangerous condition.&nbsp; 
+			Physicians are interested in two questions: (1) Do HIT patients tend 
+			to stay in ICU longer?&nbsp; (2) How effective is the drug 
+			Argatroaan&nbsp; for HIT patients?</p>
+									<p style="margin: 0" align="left">&nbsp;</p>
+									<h4 style="margin: 0" align="left"><b>Demo Summary:</b></h4>
+									<p style="margin: 0" align="left">This demonstration shows how to 
+			flexibly create groups and compare them using temporal summaries.&nbsp; 
+			We assume viewers are already familiar with the basic features of 
+			Lifelines2.</td>
+									<td colspan="2">8 minutes 06 seconds</td>
+					</tr>
+					<tr>
+									<td rowspan="2">
+									<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">
+									<img border="0" src="images/icons/flash_icon.jpg" width="28" height="28">&nbsp;</p>
+									<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">Flash
+            						<p style="word-spacing: 0; line-height: 100%; margin: 0" class="style1">(.swf)</td>
+									<td class="style3">
+									<a href="http://www.cs.umd.edu/hcil/lifelines2/videos/Lifelines2-(HIT)-2009-05-10_flash/full(1024x768)/HIT(2009-05-10)(1024x768).htm">1024x768</a></td>
+					</tr>
+					<tr>
+									<td style="height: 90px" class="style3">
+									<a href="http://www.cs.umd.edu/hcil/lifelines2/videos/Lifelines2-(HIT)-2009-05-10_flash/small(800x600)/HIT(2009-05-10)(800x600).htm">800x600</a></td>
+					</tr>
+					<tr>
+									<td colspan="2"></td>
+					</tr>
+					<tr>
+									<td style="width: 219px">&nbsp;</td>
+									<td style="width: 353px">&nbsp;</td>
+									<td colspan="2">&nbsp;</td>
+					</tr>
+	</table>
+	<p>&nbsp;</p>
+	<h2>&nbsp;<font color="#336699">Participants</font></h2>
+	<ul>
+					<li>Taowei David Wang, Ph.D. Student, Computer Science </li>
+					<li><a href="http://www.cs.umd.edu/hcil/members/cplaisant/">Catherine Plaisant,</a> 
+        Associate Research Scientist, UMIACS </li>
+					<li><a href="http://www.cs.umd.edu/users/ben/">Ben Shneiderman,</a> Professor, Computer Science</li>
+	</ul>
+
+	<h2 style="margin-top: 0;"><a name="papers" id="papers"></a>
+	<font color="#336699">Publications</font></h2>
+	<p style="margin-top: 0;">Phuong Ho, Taowei David Wang, Krist Wongsuphasawat, 
+	Catherine Plaisant, Ben Shneiderman, Mark Smith, and David Roseman, 
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-32">
+	Monitoring and Improving Quality of Care with Interactive Exploration of 
+	Temporal Patterns in Electronic Health Records
+	</a>.</p>
+	<p style="margin-top: 0;">Alexander Rind, Wolfgang Aigner, Silvia Miksch, 
+	Taowei David Wang, Krist Wongsuphasawat, Catherine Plaisant, and Ben 
+	Shneiderman, 
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-19">
+	Interactive Information Visualization for Exploring and 
+	Querying Electronic Health Records: a Systematic Review</a>.</p>
+	<p>Taowei David Wang,
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-15">
+	Interactive Visualization Techniques for Searching Temporal Categorical Data</a>, 
+	Ph.D. Dissertation from the Department of Computer Science, May, 2010. 
+	[available in <a href="http://www.lib.umd.edu/drum/handle/1903/10382">UMD 
+	Dissertation Archive</a>]</p>
+	<p>Taowei David Wang, Krist Wongsuphasawat, Catherine Plaisant, and Ben Shneiderman,
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-12">
+	Visual Information Seeking in Multiple Electronic Health Records: Design 
+	Recommendations and a Process Model</a>, submitted for conference review, 
+	2010.</p>
+	<p>Taowei David Wang, Krist Wongsuphasawat, Catherine Plaisant, and Ben Shneiderman,
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2009-35">
+	Exploratory Search Over Temporal Event Sequences: Novel Requirements, 
+	Operations, and a Process Model</a>, <em>Proceedings of the third Workshop 
+	on Human-Computer Interaction and Information Retrieval</em>, 2009.</p>
+	<p>Taowei David Wang, Amol Deshpande, and Ben Shneiderman,
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2009-14">
+	A Temporal Pattern Search Algorithm for Personal History Event Visualization</a>, 
+	submitted for journal review, 2009.</p>
+	<p>Taowei David Wang, Catherine Plaisant, Ben Shneiderman, Neil Spring, David Roseman, Greg Marchand, Vikramjit Mukherjee, 
+       and Mark Smith.&nbsp;
+	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2009-09">Temporal Summaries: Supporting Temporal Categorical Searching, Aggregation and Comparison</a>,&nbsp; 
+	<em>IEEE Transactions on Visualization and Computer Graphics</em>, 15(6), 1049-1056, 
+	November/December 2009.</p>
+	<p>Taowei David Wang, Catherine
+    Plaisant, Alex Quinn, Roman Stanchak, Ben Shneiderman, and Shawn
+    Murphy.&nbsp;
+	<a href="http://cgis.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2007-28">Aligning Temporal Data by Sentinel Events: Discovering
+    Patterns in Electronic Health Records</a>,&nbsp; <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems</em> 
+	(CHI 2008).</p>
+
+	<h2 style="margin-top: 0; margin-bottom: 0"><font color="#336699">LifeLines2
+    Links</font></h2>
+	<p style="margin-top: 0; margin-bottom: 0">
+	<a href="pages/tutorial/lifelines2_tutorial.htm">LifeLines2
+    Tutorial</a></p>
+	<p style="margin-top: 0; margin-bottom: 0">
+	<a href="pages/lifelines2InputFormat.html">LifeLines2
+    File Format</a></p>
+	<p style="margin-top: 0; margin-bottom: 0">
+	<a href="pages/tutorial/categoryMapper_tutorial.htm">CategoryMapper
+    Tutorial</a></p>
+	<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+	<h2><font color="#336699">Sponsors and Partners</font></h2>
+	<p>This project is supported in part by the Washington Hospital Center and
+    Harvard Medical School - Partners HealthCare</p>
+	<h2><font color="#336699">Other Related Projects from HCIL</font></h2>
+	<p><a href="http://www.cs.umd.edu/hcil/lifeflow/">LifeFlow</a>: 
+	Visualization for Aggregated of Event Sequences over time.</p>
+	<p><a href="http://www.cs.umd.edu/hcil/similan/">Similan</a>: Similarity 
+	search of temporal categorical data.</p>
+	<p><a href="http://www.cs.umd.edu/hcil/lifelines/">Lifelines</a>:&nbsp;
+    Visualizing patient records, criminal records, and personal histories.</p>
+	<p><a href="http://www.cs.umd.edu/hcil/patternfinder/">PatternFinder</a>:&nbsp;
+    integrated interface for visual query and result-set visualization for
+    search and discovery of temporal patterns within multivariate and
+    categorical data sets.</p>
+	<p><a href="http://www.cs.umd.edu/hcil/patternFinderInAzyxxi/">PatternFinder in
+    Azyxxi</a>:&nbsp; <font color="#000000">Temporal Query Formulation and Result Visualization in Action</font></p>
+
+	<h2><font color="#336699">Related Workshops from HCIL</font></h2>
+	<p>
+	<a href="http://www.cs.umd.edu/hcil/about/events/open-house-2004/ws_meddevice.htm">Personal
+    Medical Devices Workshop: Increasing Patient Healthcare Participation</a>
+    (June 3, 2004)</p>
+	<p><a href="http://www.cs.umd.edu/hcil/ehrviz-workshop/">Interactive Visual
+    Exploration of Electronic Health Records</a> (May 30, 2008)</p>
+	<p><a href="http://www.cs.umd.edu/hcil/ehr-workshop-2010/index.html">
+	Visualization for Electronic Health Records: Promoting Patient-Centered 
+	Cognitive Support for Physician Decision-Making</a> (July 6, 2010)</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp; </p>
+	<p style="margin-bottom: 0;">&nbsp;</p>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- Content ends here -->
+
+<!-- footer -->
+<!--#include virtual="/hcil/_includes/footer.html"-->
+
+</body>
+</html>

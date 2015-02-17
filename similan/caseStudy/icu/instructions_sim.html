@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<link href="http://www.cs.umd.edu/hcil/_styles/screen.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.cs.umd.edu/hcil/_styles/menu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.cs.umd.edu/hcil/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+<title>Case Study - ICU Transfers: Similan Instructions</title>
+
+<link rel="stylesheet" type="text/css" href="../../css/similan.css"/>
+
+<body>
+<div align="center">
+	<table id="contentBox">
+		<tr><td class="normalText">
+		
+		<h2>Step-by-Step Instructions</h2>
+		
+		<b>Task:</b> Find patients who were transferred from ICU to floor and transferred back to ICU within 2 days 
+		<br>
+		<b>Tool:</b> <a href="http://www.cs.umd.edu/hcil/similan">Similan</a>
+		<br>
+		<b>by:</b> Krist Wongsuphasawat
+		<br>
+		<b>Last update:</b> July 31, 2009
+		<p>
+		<b>Other alternative(s):</b> See how to do this task in <a href="instructions_ll2.html">LifeLines2</a>.		
+		</p>
+		
+		<p>
+		
+		<h3>1. Load the data file</h3> 
+		<p>
+			Load file from the menu
+			<div align="center">
+				<img src="img/s_open.png"/>
+			</div>
+		</p>
+	 
+		<h3>2. Align</h3>
+		<p>
+		Align by "Floor". We then call "Floor" the <i>Sentinel</i> event. 
+			<div align="center">
+				<img src="img/s_align.png"/>
+			</div>
+		</p>
+		
+		<h3>3. Draw events on the timeline</h3>
+		<p>		 
+		Click on "edit", "Create new target" and select category and click on the "Add" button. The cursor will change to magic wand.
+		Click on the timeline to place event at that location.
+		In this example, we drew "Floor" at time zero first and "ICU" before the "Floor" 
+		and another ICU at one day after time zero (because it is the middle of 2 days).
+			<div align="center">
+				<img src="img/s_target.png"/>
+			</div>
+		</p>
+		
+		<h3>4. Set the range</h3>
+		<p>
+		Draw a selection on the top of the timeline to specify range of interest (indicated by red line). 
+		In this example, we set the range to 15 days before the floor until 2 days after floor
+			<div align="center">
+				<img src="img/s_scope.png"/>
+			</div>
+		</p>
+		 
+		<h3>5. Search</h3>
+		<p>
+		Click on "Search" and you will get a result like this. 
+		The most similar records (by default definition of similarity) are on the top.
+			<div align="center">
+				<img src="img/s_search.png"/>
+			</div>
+		</p>
+		
+		<h3>6. Filter</h3>
+		<p>
+		To make the result more precise,
+		because we know that there must be at least two ICU in this range so we add filter to it
+		and click on "Apply Filter".
+			<div align="center">
+				<img src="img/s_filter.png"/>
+			</div>
+		</p>
+		
+		<h3>7. Done</h3>
+		<p>
+		This is the result. The top 7 patients from 244 patients were transferred from ICU to floor and transferred back to ICU within 2 days.
+			<div align="center">
+				<img src="img/s_result.png"/>
+			</div>
+		</p>
+
+		</td></tr>
+	</div>
+</body>
+</html>

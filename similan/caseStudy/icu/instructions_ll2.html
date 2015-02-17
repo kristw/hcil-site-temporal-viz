@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<link href="http://www.cs.umd.edu/hcil/_styles/screen.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.cs.umd.edu/hcil/_styles/menu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.cs.umd.edu/hcil/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+<title>Case Study - ICU Transfers: LifeLines2 Instructions</title>
+
+<link rel="stylesheet" type="text/css" href="../../css/similan.css"/>
+
+<body>
+<div align="center">
+	<table id="contentBox">
+		<tr><td class="normalText">
+		
+		<h2>Step-by-Step Instructions</h2>
+		
+		<b>Task:</b> Find patients who were transferred from ICU to floor and transferred back to ICU within 2 days 
+		<br>
+		<b>Tool:</b> <a href="http://www.cs.umd.edu/hcil/lifelines2">LifeLines2</a>
+		<br>
+		<b>by:</b> Krist Wongsuphasawat
+		<br>
+		<b>Last update:</b> July 31, 2009
+
+		<p>
+		<b>Other alternative(s):</b> See how to do this task in <a href="instructions_sim.html">Similan</a>.		
+		</p>
+
+		<p>
+		
+		<h3>1. Load the data file</h3> 
+		<p>
+			Load file from the menu
+			<div align="center">
+				<img src="img/1_open.png"/>
+			</div>
+		</p>
+
+		<h3>2. Use sequence filter</h3>
+		<p>
+			Use sequence filter "ICU", "Floor", "ICU" to find patients who have the sequence regardless of time and click on "Keep Selected"
+			<div align="center">
+				<img src="img/2_sequence.png"/>
+			</div>
+		</p>
+		
+		<h3>3. Save record as a new group</h3>
+		<p>
+			14 patients were selected. Click on "Save Records as New Group" to save this group. Name it "ICU->Floor->ICU".
+			<div align="center">
+				<img src="img/3_saveGroup.png"/>
+			</div>
+		</p>
+		 
+		<h3>4. Align</h3>
+		<p>
+		Align by <u>all occurrences</u> of "Floor". We then call "Floor" the <i>Sentinel</i> event. 
+		The program may ask you about duplication. Please click "Proceed". 
+			<div align="center">
+				<img src="img/4_align.png"/>
+			</div>
+		</p>
+		
+		<h3>5. Filter by the distribution of "ICU" after the sentinel event</h3>
+		<p>		 
+		Show the distribution of ICU from the combobox. 
+		Draw a selection on the bar chart to select patients who were moved to ICU within 2 days after the sentinel event ("Floor").
+			<div align="center">
+				<img src="img/5_1.png"/>
+			</div>
+		Click on "Keep Selected".
+			<div align="center">
+				<img src="img/5_2.png"/>
+			</div>
+		</p>
+		
+		<h3>6. Filter by the distribution of "ICU" before the sentinel event</h3>
+		<p>
+		Within the result set from 5., select all patients who were in ICU before the sentinel event, which means they were transferred from ICU to Floor first, by drawing a selection on the bar charts.
+			<div align="center">
+				<img src="img/6_1.png"/>
+			</div>
+		Click on "Keep Selected".
+			<div align="center">
+				<img src="img/6_2.png"/>
+			</div>
+		</p>
+		 
+		<h3>7. Manually remove non-relevant results</h3>
+		<p>
+		Patient #45665487 and #45755213 were transferred within the floor a few times before they were transferred back to ICU so they should not be selected. 
+		</p>
+		
+		<h3>8. Done</h3>
+		<p>
+		This is the result. 5 patients from 244 patients were transferred from ICU to floor and transferred back to ICU within 2 days.
+			<div align="center">
+				<img src="img/7.png"/>
+			</div>
+		</p>
+
+		</td></tr>
+	</div>
+</body>
+</html>

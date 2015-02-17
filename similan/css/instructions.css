@@ -1,0 +1,49 @@
+body, td{
+	font-family: Verdana;
+	font-size: 8pt;
+}
+
+h2{
+	padding-top: 12px;
+	text-transform: none;
+}
+h3{
+	font-family: Arial,Helvetica;
+	font-size: 14px;
+	border-bottom: 1px dotted #777777;
+	text-transform: none;
+}
+p{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.highlightBox{
+	background-color: #eeeeee;
+	border: 1px dotted #777777;
+	padding-left: 16px;
+	padding-right: 12px;
+	padding-top: 12px;
+	padding-bottom: 14px;
+}
+
+li.h3{
+	padding-top:10px;
+	font-family: Arial,Helvetica;
+	font-size: 14px;
+	font-weight:bold;
+	border-bottom: 1px dotted #777777;
+	text-transform: capitalize;
+}
+
+#contentBox{
+	width:820px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #dedede;
+}
+
+.normalText{
+	font-family: Verdana;
+	font-size: 10pt;
+}
