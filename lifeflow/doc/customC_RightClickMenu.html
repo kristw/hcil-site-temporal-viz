@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Custom Components</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript" type="text/javascript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Custom Components'); // Modify 'Template page' to the page title
+	lfdoc_addBreadCrumbStep('Right-Click Menu'); // Modify 'Template page' to the page title
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		// lfdoc_setChapter(20);
+		// lfdoc_addSectionNo();
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Custom Components: Right-Click Menu</h1>
+
+<h2>Concept</h2>
+
+<div class="textBox">
+	<p>
+		I created my own popup menu because of these two reasons:
+	</p>
+	<ol>
+		<li>
+			The default <code>PopupMenu</code> and its Nimbus look and feel looks out of place when shown on LifeFlow display.
+		</li>
+		<li>
+			I want to block the users from doing other things except selecting from the right-click menu. 
+			That means it should be a modal dialog, but the <code>PopupMenu</code> is not a dialog.
+		</li>
+	</ol>
+	<p>
+		This is also a general component that can be used elsewhere independently from this project.		
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/customC/right_click_menu.png">
+	<p class="caption">Figure 1: Custom Right-Click Menu</p>
+</div>
+
+<h2>Implementation</h2>
+
+<div class="textBox">
+	<p>
+		The code for this component can be found in package <code>similines.components.popup</code>.
+	</p>
+	<ul>
+		<li>
+			<code>KPopupDialog</code>: The popup dialog
+		</li>
+		<li>
+			<code>KPopupPanel</code>: The panel inside the dialog
+		</li>
+		<li>
+			<code>KAbstractMenuItem</code>: Base class for any kind of menu item
+		</li>
+		<li>
+			<code>KMenuItem</code>: Menu item with text only
+		</li>
+		<li>
+			<code>KCheckBoxMenuItem</code>: Menu item with checkbox
+		</li>
+	</ul>
+	<p>
+		To use, just create <code>KPopupDialog</code> and call <code>addMenuItem()</code> to add the <code>KAbstractMenuItem</code> objects into it. 
+		The event listeners can be bound directly to the menu items.
+	</p>
+	<p>
+		<b>Note:</b> I realized later that I cannot support multiple level menu like the original one yet, but I don't need it now anyway. That can also be in the future plan.
+	</p>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

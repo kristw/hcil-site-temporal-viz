@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="description" content="LifeFlow Project at the Human-Computer Interaction Lab at the University of Maryland, College Park" />
+<meta name="keywords" content="user interfaces, human-computer interaction, HCI, visualization, event sequences, lifeflow, temporal data" />
+
+<link href="http://www.cs.umd.edu/hcil/_styles/screen.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://www.cs.umd.edu/hcil/_styles/menu.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.cs.umd.edu/hcil/favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="http://www.cs.umd.edu/hcil/_scripts/hcil.js"></script>
+
+<title>LifeFlow</title>
+
+<!-- highlight active area -->
+<script type="text/javascript">
+var active_page='research';
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27380042-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- End Google Analytics -->
+</head>
+
+<body onload="ds_onstate();">
+
+<!-- banner -->
+<!--#include virtual="/hcil/_includes/banner.html"-->
+
+<!-- Content starts here -->
+
+<div id="content-wrap" class="one-col">
+ <div id="wrap">
+  <div id="content">
+   <div id="main">
+
+    <h1 align="center">
+    	<strong>LifeFlow</strong>: Understanding Millions of Event Sequences in a Million Pixels
+    </h1>
+    <div align="center">
+    Jump to: 
+    <a href="#features">Features</a> | 
+    <a href="#participants">Participants</a> | 
+    <a href="#presentations">Presentations</a> | 
+    <a href="#video">Videos</a> | 
+    <a href="#papers">Publications</a> | 
+    <a href="#related">Related Projects</a>
+    <br />
+    <br />
+    </div>
+    
+    <div align="center">
+   	<table><tr>
+   		<td>
+    		<iframe src="//www.facebook.com/plugins/like.php?href=www.facebook.com%2Flifeflowproject&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=292219584126250" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+    	</td>
+    	<td>
+    		<a href="https://twitter.com/share" class="twitter-share-button" data-width="80px" data-text="LifeFlow: Understand Millions of Event Sequences in a Million Pixels" data-count="horizontal" data-via="lifeflowproject" data-related="kristwongz">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    	</td>
+    	<td>
+    		<a href="https://twitter.com/lifeflowproject" class="twitter-follow-button" data-width="170px" data-show-count="false">Follow @lifeflowproject</a>
+			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+    	</td>
+    	<td>
+    		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+			<g:plusone width="40" size="medium"></g:plusone>
+    	</td>
+    	<td>
+    		<script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+			<script type="IN/Share" data-url="http://www.cs.umd.edu/hcil/lifeflow/" data-counter="right"></script>
+    	</td>
+    </tr></table>
+    </div>
+    
+    <p align="center" style="margin-top: 0;">
+    	<img src="img/LifeFlow3.png"/><br />
+      <br />
+    </p>
+    
+    <!--<p align="left" class="highlightBox">
+   	  <i>
+      <strong>LifeFlow</strong> 
+      is an interactive data analysis tool.
+      </i>
+    </p>-->
+<div style="width:900px; margin: 0 auto; text-align: left;">
+	<h2>Project Description    </h2>
+	<p>Event sequence analysis is an important task in many domains: medical researchers study the patterns of transfers within the hospital for quality control; transportation experts study accident response logs to identify best practices. In most cases they deal with more than thousands of records. While previous research has focused on searching and browsing, overview tasks are often overlooked. We introduce a novel interactive visual overview of event sequences called <em>LifeFlow</em>. LifeFlow scales to any number of records, summarizes all possible sequences, and highlights the temporal spacing of the events within sequences.    </p>
+    <br />
+    <h2>Participants</h2>
+<ul>
+	<li>
+		<a href="http://www.cs.umd.edu/~kristw">Krist Wongsuphasawat</a>, PhD Candidate, Computer Science</li>
+	<li>John Alexis	Guerra G&oacute;mez, PhD Student, Computer Science</li>
+	<li>
+		<a href="http://www.cs.umd.edu/hcil/members/cplaisant/">Catherine Plaisant</a>, 
+		Research Scientist, UMIACS	</li>
+	<li>
+		<a href="http://www.cs.umd.edu/users/ben/">Ben Shneiderman</a>, 
+		Professor, Computer Science	</li>
+</ul>
+
+	<p><a name="sponsors" id="sponsors"></a></p>
+	<br/>
+	<h2>SPONSORS</h2>
+	<p> We thank the National Institutes of Health (Grant RC1CA147489-02) and the Center for Integrated Transportation Systems Management (a Tier 1 Transportation Center at the University of Maryland) for partial support of this research. We also thank MedStar Health and Dr. Zach Hettinger, Dr. Phuong Ho, Dr. Mark Smith and Mr. David Roseman for their close collaboration.</p>
+	<br/>
+
+	<a name="presentations"></a>
+	<h2>Featured Presentations</h2>
+
+	<p>
+		If this is your first time here, go ahead and take a look at this presentation. It will introduce you to LifeFlow. (Video demo inside)
+		<br>
+		Other presentations can be found from this <a href="media.shtml">page</a>. 
+	</p>
+
+	<p>
+		<div style="width:425px" id="__ss_10357465"> 
+			<iframe src="http://www.slideshare.net/slideshow/embed_code/10357465" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> 
+		</div>
+	</p>
+	
+	<br>
+
+    <a name="video"></a>
+	<h2>Featured Videos </h2>
+	
+	<p>
+		If you are in a rush, view only these two videos below. Within five and a half minutes, you should know much more about LifeFlow.
+		<br>
+		Other videos can be found from this <a href="media.shtml">page</a>. 
+	</p>
+
+	<p>
+	<div>
+	<iframe width="420" height="315" src="http://www.youtube.com/embed/QxceG6_RM8w" frameborder="0" allowfullscreen></iframe>
+	<iframe width="420" height="315" src="http://www.youtube.com/embed/nXrmJS6Vk9A" frameborder="0" allowfullscreen></iframe>
+	</div>
+	</p>
+	
+	<br>
+	
+	<a name="showcases"></a>
+	<h2>Showcases</h2>
+	<p>
+		If you have already known enough about LifeFlow and would like to see more applications of LifeFlow in different domains, check out these case studies.
+	</p>
+
+	<h3>
+		1. LifeFlow Case Study: 
+		<a href="showcase/icdl/index.html">
+			How do people read children books online?
+		</a>
+	</h3>
+	<ul><li>
+		Available format: <a href="showcase/icdl/index.html">Web</a> | <a href="showcase/icdl/lf_case_icdl.pdf">PDF</a> | <a href="showcase/icdl/lf_case_icdl.ppt">Powerpoint</a>
+	</li></ul>
+
+	<h3>
+		2. LifeFlow Case Study:
+		<a href="showcase/catt/index.html">
+		Comparing Traffic Agencies' Performance from Traffic Incident Logs
+		</a>
+	</h3>
+	<ul><li>
+		Available format: <a href="showcase/catt/index.html">Web</a> | <a href="showcase/catt/lf_case_catt.pdf">PDF</a> | <a href="showcase/catt/lf_case_catt.pdf">Powerpoint</a> | <a href="http://www.youtube.com/watch?v=KIpOL8G8U78&feature=plcp&context=C22269UDOEgsToPDskK4OWRLOq1MlanMAVAP1Bl5">Video</a>
+	</li></ul>
+	
+	<br>
+
+      <!-- Software -->
+	<h2>Software & User Manual</h2>
+    <p> 
+    	LifeFlow is still under development, so we have not made LifeFlow publicly available yet. 
+    	However, if you have any dataset that you think LifeFlow can help you analyze them, we will be happy to discuss the possibilities and work with you. 
+    	Please contact us for more information.
+    </p>
+
+	<p> The online user manual is <a href="manual/index.html">here</a>. </p>
+	<br>
+
+	<h2>Data Format</h2>
+    <p> Please visit the <a href="manual/chapter_start.html#1.4">data format</a> page in the user manual for more details about the data that LifeFlow can receive as input.</p>
+
+    <br/><!-- Publications -->
+      <a name="papers"></a>  
+    <h2><a name="papers" id="papers"></a>Publications</h2>
+
+	<p>
+		[4] Cui Tao, Krist Wongsuphasawat, Kim Clark, Catherine Plaisant, Ben Shneiderman and Christopher G. Chute. 
+		<br>
+		Towards Event Sequence Representation, Reasoning, and Visualization for EHR Data
+		<br>
+		in Proc. ACM SIGHIT International Health Informatics Symposium (IHI) 2012.
+	</p>
+
+	<p>[3] Jae-wook Ahn, Peter Peter Brusilovsky and Krist Wongsuphasawat.
+		<br>
+		Analyzing User Behavior Patterns in Adaptive Exploratory Search Systems with LifeFlow
+		<br>
+		in Proc. Workshop on Human-Computer Interaction and Information Retrieval (HCIR) 2011.
+	</p>
+
+	<p>[2] John Alexis Guerra G&oacute;mez, Krist Wongsuphasawat, Taowei David Wang, Michael Pack and Catherine Plaisant <br/>
+    	<a href="http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-17">Analyzing Incident Management Event Sequences with Interactive Visualization </a><br />
+		in Transportation Research Board 90th Annual Meeting Compendium of Papers, 2011.
+	</p>
+	
+	<p>[1] Krist Wongsuphasawat, John Alexis Guerra G&oacute;mez, Catherine Plaisant, <br />
+	  Taowei David Wang, Meirav Taieb-Maimon and Ben Shneiderman<br />
+	  <a href="http://portal.acm.org/citation.cfm?id=1979196&amp;CFID=22263971&amp;CFTOKEN=55313054#source">LifeFlow: Visualizing an Overview of Event Sequences</a>
+	  <br />
+	  in Proceedings of the 2011 Annual Conference on Human Factors in Computing Systems (CHI'11), 1747-1756.
+	  <br>
+	  <span style="font-size:10px">*If you are looking for a citation, please cite this paper.</span>
+	</p>
+	
+    <br/>
+    <a name="related"></a>
+<h2> Related Projects from HCIL</h2>
+
+    <p><a href="http://www.cs.umd.edu/hcil/temporalviz/">Summary of HCIL Projects in Temporal Visualizations</a>: &nbsp;
+    LifeLines, LifeLines2, PatternFinder, etc.
+    </p>
+    <br/>
+
+<h2>Related Workshops from HCIL</h2>
+    <p><a href="http://www.cs.umd.edu/hcil/sharp/workshop2011/">Electronic Health Records Informatics</a> (May 26, 2011)</p>
+    <p><a href="http://www.cs.umd.edu/hcil/ehrviz-workshop/">Interactive Visual
+      Exploration of Electronic Health Records</a> (May 30, 2008)</p>
+    <p><a href="http://www.cs.umd.edu/hcil/about/events/open-house-2004/ws_meddevice.htm">Personal
+      Medical Devices Workshop: Increasing Patient Healthcare Participation</a>
+      (June 3, 2004)</div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- Content ends here -->
+
+<!-- footer -->
+<!--#include virtual="/hcil/_includes/footer.html"-->
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Custom Components</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript" type="text/javascript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Custom Components'); // Modify 'Template page' to the page title
+	lfdoc_addBreadCrumbStep('TextFileProcessor'); // Modify 'Template page' to the page title
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		// lfdoc_setChapter(20);
+		// lfdoc_addSectionNo();
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Custom Components: TextFileProcessor</h1>
+
+<h2>Concept</h2>
+
+<div class="textBox">
+	<p>
+		There are many times that I need to open a text file and do some processing with it. 
+		Before creating this, I often use python script. 
+		I usually copy the code from an old script (because I am too lazy to remember how to open file for read/write and read each line from the text file) 
+		and modify it to do the new function that I want.
+	</p>
+	<p>
+		I thought maybe I could create some abstract class in Java that handle the file opening and looping through all the lines for me,
+		so I won’t have to think about these things again and again. So I implemented <code>AbstractTextFileProcessor</code>.
+	</p>
+</div>
+
+<h2>Implementation</h2>
+
+<div class="textBox">
+	<p>
+		Now, whenever I want to open a text file and ran through all the lines to do some batch processing, 
+		I just create a new class that extends <code>AbstractTextFileProcessor</code>.
+	</p>
+	<p>
+		All parameters (inputFile, outputFile, etc.) are passed through the constructor.	
+	</p>
+	<p>
+		There are three abstract methods that need to be implemented:
+	</p>
+	<ul>
+		<li>
+			What to do before enter the loop
+			<pre class="brush: java">
+				protected abstract void doBeforeLoop();
+			</pre>
+		</li>
+		<li>
+			What to do with each line
+			<pre class="brush: java">
+				protected abstract void processLine(String line) throws IOException;
+			</pre>
+		</li>
+		<li>
+			What to do after finish looping through all lines.
+			<pre class="brush: java">
+				protected abstract void doAfterLoop();
+			</pre>
+		</li>
+	</ul>
+
+	<p>
+		And I like to create another method called <code>execute()</code> for starting the process. 
+		I did not declare this method in the interface because the return type can be different. 
+		For example, it can return nothing (<code>void</code>) or it can return a dataset (when this class is a parser).
+	</p>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

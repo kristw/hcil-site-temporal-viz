@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 8;
+		var chapterName = "Known bugs";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<div class="textBox">
+	<p>
+		Fixing bugs is like solving mysteries. 
+		We wish we could eliminate all of them, but it is, sigh~, impossible. 
+		So we will try to fix as much as we can to make LifeFlow stable and behave nicely. 
+		Here are some bugs that we knew about but couldn't figure out how to fix it 
+		and suggestions or temporary workaround that may help you while we track them down.
+	</p>
+</div>
+
+<ol class="question">
+<li>Sometimes the Timeline panel stop rendering for no reason.</li>
+<p class = "textBox">
+	<b>Description:</b><br>
+	The Timeline panel is blank when the dataset is not empty. 
+	We found it a few times but could not reproduce the bug.
+	It also rarely occurs.
+	Please let us know if you know how to reproduce the bug.
+</p>
+<p class = "textBox">
+	<b>Temporary solution:</b><br> 
+	Double-click on the scrollbar of the timeline panel will force the Timeline panel to redraw. 
+</p>
+
+</ol>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

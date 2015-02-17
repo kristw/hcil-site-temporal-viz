@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 4;
+		var chapterName = "Basic Analysis";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h2>Customizing event types (color, visibility, etc.)</h2>
+<div class="textBox">
+	<p>
+		The bottom of the Control Panel contains three tabs. 
+		The Legend tab controls the display options for event types. 
+		Users can specify which event types to display, rename them, and specify the color-coding for each event type.
+	</p>
+</div>
+
+<h3>Select which event types to display</h3>
+<div class="textBox">
+	<p>
+		The two columns of checkboxes allow users to select whether the event type is shown in the Overview Panel and Timeline Panel, respectively. 
+		By default, LifeFlow displays all event types in both panels. 
+		The checkboxes allow the user to show/hide specific event type. 
+		To show an event type in the Overview Panel, check the leftmost checkbox. 
+		To hide an event type in the Overview Panel, uncheck the leftmost checkbox. 
+		Similarly, use the second column of checkboxes to control the display of event types in the Timeline Panel.
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/LegendPanel_eventtypes.png">
+	<p class="caption">Figure: The checkboxes control which event types are displayed in the two panels.</p>
+</div>
+
+<h3>Rename an event type</h3>
+<div class="textBox">
+	<p>
+		When working with complex sets of data and information, it is very important to establish consistent naming conventions. 
+		However, in some cases, the source data may not have meaningful names. 
+		To address these issues, LifeFlow allows users to rename, or annotate, event types. To accomplish this:
+	</p>
+</div>
+<ol class="instructions">
+	<li>Click the name of the target event.</li>
+	<li>Type the new name of the event.</li>
+	<li>Click the green check button.</li>
+</ol>
+
+<figure>
+<img src="figure/Legend_1.jpg" width="250">
+<img src="figure/Legend_2_3.jpg" width="250">
+</figure>
+
+<h3>Change the color</h3>
+<div class="textBox">
+	<p>
+		Users may change the color of an event type - for example, to better highlight that event type in the LifeFlow visualization. To do this:
+	</p>
+</div>
+<ol class="instructions">
+	<li>Double-click the colored triangle of the target event type.</li>
+	<li>Select the color from the popup dialog. </li>
+	<li>Click "OK" to finish.</li>
+</ol>
+
+<div class="figureBox">
+	<img src="figure/chooseColor.png">
+	<p class="caption">Figure: Choosing color</p>
+</div>
+
+<h3>Change the order of event types</h3>
+<div class = "textBox">
+	<p>
+		The order of event types in the legend panel also controls the visualization in two ways.
+	</p>
+	<ul>
+		<li>The vertical order of event types in the Timeline Panel. </li>
+		<li>When creating LifeFlow and there are two events that occurred at the same time, the order of the event types in this list is used to break the tie.</li>
+	</ul>
+</div>
+<ol class="instructions">
+	<li>To change the order of an event type, drag the event type and drop it at the location you want.</li>
+</ol>
+
+<h2>Zooming and scrolling</h2>
+	<div class="textBox">
+		<p>
+			In the LifeFlow Overview Panel, records are merged into groups, and the events are visualized as vertical bars in the specified colors. 
+			The labels of the Y -axis indicate the number of records within the groups. 
+			The labels of the X-axis indicate the elapsed time corresponding to the records in the groups. 
+			Users can explore the visualization by zooming, scrolling, and modifying how data is displayed in scale and time units.
+		</p>
+		<p>
+			The vertical and horizontal scrollbars enable users to zoom in to an interesting portion of the dataset. 
+			The scale can be specified by the users with the top control by typing a number in the text field, and selecting appropriate units from the pull-down menu.
+		</p>
+	</div>
+
+<h3>Zoom</h3>
+<h4>General zoom</h4>
+	<ol class="instructions">
+		<li>Click and hold the handle (arrow) of the scrollbar.</li>
+		<li>Drag to modify the scale.</li>
+		<li>Release when finished.</li>
+	</ol>
+<h4>Reset zoom back to 100%</h4>
+	<ol class="instructions">
+		<li>Double-click the middle area of the scrollbar</li>
+	</ol>
+<h4>Zoom to a particular sequence</h4>
+	<ol class="instructions">
+		<li>Right-click the sequence</li>
+		<li>Click on "Zoom to this sequence"</li>
+		<li>The zooming will be animated to keep the users oriented.</li>
+	</ol>
+
+<h3>Scroll</h3>
+	<ol class="instructions">
+	<li>Click and hold the middle area of the scrollbar.</li>
+	<li>Drag to modify the visible region.</li>
+	<li>Release when finished.</li>
+	</ol>
+
+<h3>Change the time unit</h3>
+	<ol class="instructions">
+	<li>Click the pull-down menu on the top of Overview Panel.</li>
+	<li>Click appropriate time unit.</li>
+	</ol>
+
+<h3>Change the scale</h3>
+<h4>Method 1</h4>
+	<ol class="instructions">
+	<li>Type an appropriate number in the text field.</li>
+	<li>Hit key "Enter".</li>
+	</ol>
+<h4>Method 2</h4>
+	<ol class="instructions">
+	<li>Click the button with up-arrow/down-arrow to add/subtract the number in the text field by one.</li>
+	</ol>
+
+
+<h2>Selecting and removing records</h2>
+<div class="textBox">
+	<p>
+		Users can select records by clicking on an individual record, or a group of records, in either the Overview Panel or the Timeline Panel.
+	</p>
+	<ul>
+		<li>When the LifeFlow user opens a dataset, none of the records are selected, by default.</li>
+		<li>The currently selected records are highlighted with gold background.</li>
+		<li>Once a record is selected in one of the two panels, the record will automatically be selected in the other panel. This helps to keep the data visualization in synch in the Overview and Timeline views.</li>
+	</ul>
+	<p>
+		After some records are selected, 
+		users can choose to remove the selection or keep only the selection and remove the rest
+		from the buttons in the Control Tab of the Control Panel.
+	</p>
+	<ul>
+		<li>Click <b>Remove them</b> to remove selected records.</li>
+		<li>Click <b>Remove others</b> to keep only selected records and remove everything else.</li>
+	</ul>
+</div>
+
+<h2>Exploring distributions of the time gaps</h2>
+
+<div class="textBox">
+	<p>The Overview Panel enables users to explore the elapsed time between two events, when the mouse pointer hovers between two vertical bars.</p>
+	<p>Beside the distribution, LifeFlow displays statistics about the distribution as tooltip showing in the Control Panel. The statistics calculated are mean, median, and standard deviation (SD).</p>
+	<p>So, for example, LifeFlow user might discover that for a selected subset of patients, the time between the event ICU and Floor has a mean of 4 days 1:21:40, a median of 3 days 2:59:00, and a standard deviation of 3 days 6:35:23.</p>
+	<p>Right-click brings up a menu which allows users to further explore the data distribution:</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/RightClickMenu.jpg">
+	<p class="caption">Figure: The right-click menu.</p>
+</div>
+
+<h3>Freeze distribution</h3>
+<div class="textBox">
+	<p>
+		Freezing the distribution marks the distribution on the display until the users unfreeze it, which is done by unchecking the freeze option in the same menu. 
+		After freezing, the mouse cursor does not necessarily have to stay in the portion between two bars. The users can freeze several distributions which they are interested in.
+	</p>
+</div>
+
+<h3>Selection from distribution</h3>
+<div class="textBox">
+	<p>
+		This feature is useful when the users want to select a subset of the records with some constraints related to the distribution. 
+		An example to apply the feature is to select the records with the elapse time between event Admission and event ICU no longer than 2 days.
+	</p>
+</div>
+<ol class="instructions">
+	<li>Right-click on the end (ICU (purple) ) event</li>
+	<li>Click on "Enable selection from the distribution", the distribution will automatically freeze on the display.</li>
+	<li>Users then can draw a rectangle to select records.</li>
+	<li>After the finishing the selection, right-click and click on "Finish selection from distribution"</li>
+</ol>
+
+<figure>
+	<img src="figure/SelectDistribution_1.jpg" width="200">
+	<img src="figure/SelectDistribution_2_3.jpg" width="205">
+	<img src="figure/SelectDistribution_4.jpg" width="200">
+</figure>
+
+
+<h2>Filtering</h2>
+<div class="textBox">
+	<p>
+		LifeFlow supports filtering the records by event count and sub-sequence. The Filtering tab can be reached from the Control tab by clicking the tabs All -> Filter.
+	</p>
+	<ul>
+		<li>When filtering by event count, the users specify the constraints on the number of times the specified event occurs. For example, "records having at least 3 occurrences of event A" can be set as a constraint.</li>
+		<li>When filtering by sub-sequence, the users specify the constraints on the sequence of events. For example, "records have the event sequence A, B, C" can be set as a constraint. Note that the constraint only specifies the relative positions of the events, but not the exact order in which they appear in the record. In the previous example, a record with sub-sequence "A, B, D, C" also passes the filter.</li>
+	</ul>
+	<p>
+		When users click on "Filter" button, only records that pass the specified filters are selected.
+		Users then can use the buttons "Remove them" and "Remove others" to remove or keep the selected records.
+	</p>
+</div>
+
+<h3>Filter by event count</h3>
+<ol class="instructions">
+	<li>Switch to Filtering tab (Control -> All -> Filter).</li>
+	<li>Check the check box "Event count".</li>
+	<li>Select the event from the pull-down menu. Select "at least"/"at most"/"equal to" from the pull-down menu to specify the constraint. Type the number of occurrences in the text field.</li>
+	<li>(Optional) Check the check box with "alignment". Select "before"/"after" if the constraint counts only the the occurrences before/after the alignment.</li>
+	<li>Click the button "Filter".</li>
+</ol>
+
+<div class="figureBox">
+	<img src="figure/Filter_2ICU.jpg" width="800">
+	<p class="caption">Figure: Use filter feature to select records with 2 or more ICU.</p>
+</div>
+
+<h3>Filter by sub-sequence</h3>
+<ol class="instructions">
+	<li>Switch to Filtering tab (Control -> All -> Filter).</li>
+	<li>Check the check box "Sub-sequence".</li>
+	<li>Select the first event from the pull-down menu. Select the next event from the next pull-down menu. Repeat to complete the sub-sequence.</li>
+	<li>Click the button "Filter".</li>
+</ol>
+
+<div class="figureBox">
+	<img src="figure/Filter_Sequence.jpg" width="800">
+	<p class="caption">Figure: User filter feature to select records with the subsequence Arrival, ICU, Discharge-Alive.</p>
+</div>
+
+
+
+<h2>Alignment</h2>
+<div class="textBox">
+	<p>To facilitate the analysis focusing on an important event, LifeFlow supports the alignment of records by type of event. The alignment feature enables users to explore patterns in the sequence of events which occur before and after a specific type of event. Using
+	the sample data to illustrate this concept, LifeFlow allows the user to visualize events occurring before, and after, admission to the ICU. In this scenario, admission to the ICU can be thought of as the baseline for exploring patterns in the patient records.</p>
+	<p>In the Align tab (Control -> All -> Align), the users can align the records by one occurrence, or all occurrences, of the specified event. When the users align by all occurrences, records with multiple occurrences of the specified event are shown multiple times. Note that the records are implicitly filtered out, or excluded from display, if the record does not contain the specified type of event. For example, you might wish to explore
+	records for patients having at least two admissions to the ICU. In this scenario, LifeFlow filters the patient records to show ONLY those patients with at least two ICU events, and shows patterns of events both BEFORE and AFTER the second ICU event.</p>	
+</div>
+
+<div class="figureBox">
+	<img src="figure/AlignTab.jpg">
+	<p class="caption">Figure: Align tab.</p>
+</div>
+
+<div class="textBox">
+	<p>LifeFlow provides the following Alignment options: No alignment, align by one occurrence, and align by all occurrences.</p>
+</div>
+
+<h3>No alignment</h3>
+<div class="textBox">
+	<p>By default, the LifeFlow Overview and Timeline panels display all events with no alignment.</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/Align_NoAlignment.jpg" width="800">
+	<p class="caption">Figure: Default setting, no alignment.</p>
+</div>
+
+<h3>Align by one occurrence</h3>
+<ol class="instructions">
+	<li>Switch to Align tab (Control -> All -> Align).</li>
+	<li>Click the second radio button.</li>
+	<li>Type k in the text field when the k-th occurrence of the event is to align with. 
+		Select the event from the pull-down menu. 
+		Select "from the beginning"/"from the end" from the pull-down menu to specify the occurrences are numbered from the beginning/end.</li>
+</ol>
+
+<div class="figureBox">
+	<img src="figure/Align_Alignment.jpg" width="800">
+	<p class="caption">Figure: Aligning the records by the 2 nd ICU event. Note that the records which have less than 2 ICU events are implicitly filtered out.</p>
+</div>
+
+<h3>Align by all occurrence</h3>
+<div class="textBox">
+	<p>
+		For example, you might wish to explore patterns for all records with ICU event. 
+		Since that each record can have multiple ICU events, say n ICU events. 
+		Aligning by all occurrences duplicates multiple rows n times in the visualization and align the rows by different ICU
+		event.
+	</p>
+</div>
+<ol class="instructions">
+	<li>Switch to Align tab (All -> Align).</li>
+	<li>Click the third radio button.</li>
+	<li>Select the event from the pull-down menu.</li>
+</ol>
+
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

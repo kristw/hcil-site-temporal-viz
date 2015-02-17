@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<!-- Import syntaxhighligher -->
+	<link rel="stylesheet" type="text/css" href="../js/syntaxhighlighter/styles/shCore.css"/>
+	<link rel="stylesheet" type="text/css" href="../js/syntaxhighlighter/styles/shThemeDefault.css"/>
+	<script src="../js/syntaxhighlighter/scripts/shCore.js"></script>
+	<script src="../js/syntaxhighlighter/scripts/shBrushBash.js"></script>
+
+	<title>LifeFlow User Manual - Appendix</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Appendix');
+	lfdoc_createBreadCrumb();
+
+	$(document).ready(function() {
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Appendix A: Upgrade Java&trade; Runtime Environment</h1>
+<ul>
+<li>Windows</li>
+<p class = "textBox">
+	To check the active version of the Java&trade; Runtime Environment for Windows, type <code>java -version</code> in the Windows command line, and press Enter
+</p>
+<li>Mac</li>
+<ol>
+	<li>Launch <b>Terminal.app</b>, type <code>java -version</code>, and press the return key.  Notice that this computer does not have the required version of JRE active:</li>
+
+<pre class="brush: bash">
+new-host:~ karenlee$ java -version
+java version "1.4.2_22"
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.4.2_22-b02-329)
+Java HotSpot(TM) Client VM (build 1.4.2-92, mixed mode)
+</pre>
+
+	<li>Locate, and install, the most current version of <b>Java for Mac OS X 10.x</b>, available from <a href = "http://support.apple.com/">http://support.apple.com/</a>, where 10.x is your version of Mac OS X. [See Note below*]</li>
+	<li>Launch <b>Java Preferences.app</b>, and confirm that the most recent version of Java is checked <b>On</b>, and that it appears first in the list:</li>
+
+<div class="figureBox">
+	<img src="figure/Mac_JavaPreferences.png">
+	<p class="caption">Figure A.1: The Mac Java Preferences.</p>
+</div>
+
+	<li>In <b>Terminal.app</b>, again run the <code>java -version</code> command.</li>
+	<li>Confirm that the minimum required version of Java, or higher, is now active:</li>
+
+<pre class="brush: bash">
+new-host:~ karenlee$  java -version
+java version "1.6.0_26"
+Java(TM) SE Runtime Environment (build 1.6.0_26-b03-384-9M3425)
+Java HotSpot(TM) 64-Bit Server VM (build 20.1-b02-384, mixed mode)
+</pre>
+
+</ol>
+</ul>
+
+<p class='textBox'>
+<small>* This step is current as of August 2011.  However, the method for updating JRE for Mac OS X may change in the future.  Please check the apple.com for the latest instructions.  
+[The October, 2010 <u>Java Development Guide for Mac OS X</u> states: <b>Note</b>: As of the release of Java for Mac OS X 10.6 Update 3, the Java runtime ported by Apple and that ships with Mac OS X is deprecated. 
+Developers should not rely on the Apple-supplied Java runtime being present
+in future versions of Mac OS X.  The Java runtime shipping in Mac OS X 10.6 Snow Leopard, and Mac OS X 10.5 Leopard, will continue to be supported and maintained through the standard support cycles of those products.]</small>
+</p>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

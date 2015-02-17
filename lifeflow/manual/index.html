@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow User Manual</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+</script>
+<!-- end -->
+
+<p class="introduction">
+This document provides a guide to the <a href="http://www.cs.umd.edu/hcil/lifeflow">LifeFlow</a> application, 
+which is a research project in the Human-Computer Interaction Lab (HCIL) at the University of Maryland. 
+Since it is still under development, we have not released LifeFlow to the public yet.
+Please contact us directly if you are interested in trying the software.
+<!--Although LifeFlow has not been formally released to users outside of the Human-Computer Interaction Lab (HCIL), University of Maryland,--> 
+We also welcome your feedback. 
+Please send your comments about LifeFlow to Krist Wongsuphasawat at <span class="email">ude.dmu.sc@wtsirk</span>.
+LifeFlow is developed by Krist Wongsuphasawat and this user manual is created by Hsueh-Chien Cheng, Karen Guertler and Krist Wongsuphasawat.
+</p>
+
+<div id="tableOfContentsWrap">
+	<h1>Table of Contents</h1>
+	
+	<script language="JavaScript">
+		var sectionList = [];
+		{
+			var section = new Section("Getting Started", "chapter_start.html");
+			section.addSubsection(new Section("Before we start"));
+			section.addSubsection(new Section("System requirements"));
+			section.addSubsection(new Section("How to download and install LifeFlow?"));
+			section.addSubsection(new Section("Data format"));
+			section.addSubsection(new Section("Sample data file to use while learning LifeFlow"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Overview of the User Interface", "chapter_overview.html");
+			section.addSubsection(new Section("Overview Panel"));
+			section.addSubsection(new Section("Timeline Panel"));
+			section.addSubsection(new Section("Control Panel"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Input / Output", "chapter_io.html");
+			section.addSubsection(new Section("How LifeFlow handle data?"));
+			section.addSubsection(new Section("Loading dataset"));
+			section.addSubsection(new Section("Manipulating dataset"));
+			section.addSubsection(new Section("Saving dataset"));
+			section.addSubsection(new Section("Configuration file"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Basic Analysis", "chapter_basic.html");
+			section.addSubsection(new Section("Customizing event types"));
+			section.addSubsection(new Section("Zooming and scrolling"));
+			section.addSubsection(new Section("Selecting and removing records"));
+			section.addSubsection(new Section("Exploring distributions of the time gaps"));
+			section.addSubsection(new Section("Filtering"));
+			section.addSubsection(new Section("Alignment"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Advanced Analysis", "chapter_advanced.html");
+			section.addSubsection(new Section("Attributes"));
+			section.addSubsection(new Section("Measurement tool"));
+			section.addSubsection(new Section("Ranking/Ordering of records"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Visualization Options", "chapter_options.html");
+			section.addSubsection(new Section("Overview Panel"));
+			section.addSubsection(new Section("Timeline Panel"));
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Search", "chapter_search.html"); 
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("How to ...", "howto.html");
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Known Bugs", "bugs.html");
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Appendix", "appendix.html");
+			sectionList.push(section);
+		}
+		// {
+			// var section = new Section("Saving Data");
+			// section.addSubsection(new Section("Customizing event types"));
+			// section.addSubsection(new Section("Zooming and scrolling"));
+			// section.addSubsection(new Section("Selection"));
+			// section.addSubsection(new Section("Exploring elapsed time distributions in Overview Panel"));
+			// section.addSubsection(new Section("Filtering"));
+			// section.addSubsection(new Section("Alignment"));
+			// sectionList.push(section);
+		// }
+		createTableOfContents(sectionList);
+	</script>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

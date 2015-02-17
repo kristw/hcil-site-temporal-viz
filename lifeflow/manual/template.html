@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow User Manual - Chapter 1</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript" type="text/javascript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Template page'); // Modify 'Template page' to the page title
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(20);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h1>Top level header</h1>
+
+<h2>Level two header</h2>
+
+<div class="textBox">
+	<p>
+		Paragraph text are wrapped by &lt;div class="textBox"&gt;&lt;/div&gt; which will be rendered as a grey box.
+	</p>
+	<p>
+		Each paragraph is wrapped inside &lt;p&gt;&lt;/p&gt;.
+	</p>
+	<ul>
+		<li>Unordered lists (&lt;ul&gt;) and ordered lists (&lt;ol&gt;) can be inserted inside the &lt;div class="textBox"&gt;&lt;/div&gt;.</li>
+		<li>but not ordered lists (&lt;ol&gt;) that are instructions.</li>
+	</ul>
+	<p>
+		Another paragraph in the same &lt;div class="textBox"&gt;&lt;/div&gt;.
+	</p>
+</div>
+
+<h3>Level three header</h3>
+
+<div class="textBox">
+	<p>
+		example paragraph
+	</p>
+</div>
+
+<h2>Another level two header</h2>
+
+<div class="textBox">
+	<p>
+		example paragraph
+	</p>
+</div>
+
+<ol class="instructions">
+	<li>Instructions are added outside of &lt;div class="textBox"&gt;&lt;/div&gt;.</li>
+	<li>Also add class="instructions" to &lt;ol&gt;.</li>
+</ol>
+
+<h2>Another level two header</h2>
+
+<div class="textBox">
+	<p>
+		For image, add &lt;div class="figureBox"&gt;&lt;/div&gt; to wrap the image and its caption. <br>
+		Do not add an image inside the &lt;div class="textBox"&gt;&lt;/div&gt;
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/Filter_2ICU.jpg" width="800">
+	<p class="caption">Figure x: Caption / Add class="caption" to &lt;p&gt; </p>
+</div>
+
+<div class="textBox">
+	<p>
+		Another paragraph after image
+	</p>
+</div>
+
+<br>
+<table align="center">
+		<caption>
+			Table 1: Sample table
+		</caption>
+		<tr>
+			<th>Record ID</th><th>Event type</th><th>Date and Time</th><th>Event attributes</th>
+		</tr>
+		<tr>
+			<td>4318</td><td>Arrival</td><td>2010-01-19 03:53:00</td><td>Account No.="24287939"; Entrance-Diagnosis="Heart attack"; Exit-Diagnosis="Heart attack"</td>
+		</tr>
+		<tr>
+			<td>4318</td><td>ER</td><td>2010-01-19 03:53:00</td><td></td>
+		</tr>
+		<tr>
+			<td>4318</td><td>ICU</td><td>2010-01-19 03:53:00</td><td>Room No.="125"</td>
+		</tr>
+	</table>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+4318	Arrival	2010-01-19 03:53:00	Account No.="24287939"; Entrance-Diagnosis="Heart attack"; Exit-Diagnosis="Heart attack"
+4318	ER	2010-01-19 03:53:00	
+4318	ICU	2010-01-19 03:53:00	Room No.="125"
+4318	Floor	2010-01-19 03:53:00	Room No.="854"
+4318	Exit-DISC	2010-01-19 06:44:00	ED-Dispo="DISC"; Exit-Diagnosis="Heartburn"
+5397	Arrival	2010-01-19 03:53:00	Account No.="24287939"; Entrance-Diagnosis="Heart attack"; Exit-Diagnosis="Heart attack"
+5397	ER	2010-01-19 03:53:00	
+5397	Floor	2010-01-19 03:53:00	Room No.="854"
+5397	Exit-DISC	2010-01-19 06:44:00	ED-Dispo="DISC"; Exit-Diagnosis="Heartburn"

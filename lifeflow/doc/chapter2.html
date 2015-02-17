@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Terminology</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Chapter 2');
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(2);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h1>Chapter 2: Terminology</h1>
+
+<h2>Software Architecture</h2>
+
+<div class="textBox">
+	<p>
+LifeFlow architecture follows the <i>Model-View-Controller (MVC)</i> paradigm. In the implementation, I adopted <i>PureMVC</i>, a free open source MVC Framework (available from <code>http://puremvc.org</code>).
+</p>
+<p>
+In PureMVC, each view is wrapped by a <i>mediator</i> while each model is wrapped by a <i>proxy</i>. The mediator and proxy provide PureMVC functionalities while leaving the original view and model independent from PureMVC. The central Controller is called <i>facade</i>, which acts like a mothership that knows about all views and models. The facade let all views and models communicate without knowing each other. The facade also maintains a list of <i>commands</i> that can be triggered by notifications, such as loading dataset or exit. Commands handle actions that involve multiple components or actions that should not be handled by mediators or proxies.
+</p>
+<p>
+Each view is independent and do not know that other views exist. However, when users perform an action in one view, that action can trigger changes in other views although the views do not know each other. To achieve this, these components send notifications. When a notification is issued, the facade (i.e. the mothership) will notify all mediators and commands that are registered to receive that type of notifications. Each view has to declare types of notifications that it will handle.
+</p>
+<p>
+In the ideal MVC, no views and models will know about each other. In LifeFlow, I relaxed this concept a bit by allowing a mediator (view) to know about proxy (model). A reference to the proxy of dataset is stored in each mediator. This allows direct calls to the dataset proxy without passing messages through the facade. 
+</p>
+</div>
+
+<h2>Code Organization</h2>
+
+<div class="textBox">
+
+<p>
+	The code are organized to separate classes that are reusable and classes that are specific to this software.
+</p>
+
+<ol>
+<li> <b>Reusable</b>: Most of the classes in LifeFlow are designed to be indepedent and reusable. More generic classes, such as time, counter, popup menu or color palettes, are split into package <code>edu.umd.cs.hcil.frozenlife</code>. Classes that are more specific to the work in this dissertation are organized in the following packages:
+<ol>
+<li> <i>Data structures</i>: Events, records and tree of sequences are contained in <code>edu.umd.cs.hcil.lifeflow.datastructure</code>.
+<li> <i>I/O</i>: Package <code>edu.umd.cs.hcil.lifeflow.io</code> contains classes that handle importing/exporting data from/to text files.
+<li> <i>ARF</i>: Package <code>edu.umd.cs.hcil.lifeflow.arf</code> contains classes that provide different kind of alignment, ranking and filtering for the Align-Rank-Filters framework. 
+<li> <i>Similarity measure</i>: The similarity measure used in FTS and related classes are contained in the package <code>edu.umd.cs.hcil.lifeflow.similarity</code>.
+<li> <i>User interface components</i>: Package <code>edu.umd.cs.hcil.lifeflow.components</code> contains LifeFlow, LifeLines2, FTS and other visual components.  
+</ol>
+
+<li> <b>Application-specific</b>: Classes that are specific to LifeFlow and cannot be reused are contained in the package <code>edu.umd.cs.hcil.lifeflow.mvc</code>. These classes make use of the reusable components and combine them into the LifeFlow software. 
+<ol>
+<li> Package <code>edu.cs.umd.hcil.lifeflow.mvc.baseclasses</code> contains custom extensions to the PureMVC classes. 
+<li> <i>Models</i> are in the package <code>edu.cs.umd.hcil.lifeflow.mvc.model</code>.
+<li> <i>Views</i> are in the package <code>edu.cs.umd.hcil.lifeflow.mvc.view</code>.
+<li> <i>Commands</i> are in the package <code>edu.cs.umd.hcil.lifeflow.mvc.command</code>.
+</ol>
+
+</ol>
+</div>
+
+<!-- <h2>Temporal Event Sequence</h2>
+
+<div class="textBox">
+	<p>
+		<b>Record:</b> One record of temporal event sequence in the database.<br>
+		e.g. Patient no. 10002
+	</p>
+	<p>
+		<b>Event:</b> Property of a record that is associated with time.<br>
+		e.g. Patient no. 10002 has four events: Arrival, Emergency Room, ICU and Die.
+	</p>
+	<p>
+		<b>Record Attribute:</b> Property of a record that is not associated with time.<br>
+		e.g. Gender, Age
+	</p>
+	<p>
+		<b>Event Attribute:</b> Property of an event.<br>
+		e.g. Attending physician and diagnosis are attributes of each visit (Arrival event).
+	</p>
+	<p>
+		<b>Instance:</b> Each copy of record that is shown on the visualization. One record can have multiple instances (but usually have only one.)<br>
+		e.g. Patient no. 10002 has 3 Floor events. After align this record using all Floor events, the visualization will duplicate the record and display 3 instances of this record, each with different alignment point.
+	</p>
+</div> -->
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

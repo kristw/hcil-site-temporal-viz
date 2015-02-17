@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 3;
+		var chapterName = "Input / Output";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h2>How LifeFlow handle data?</h2>
+
+<div class="textBox">
+	<p>
+		LifeFlow allows the users to load multiple data files into the system at the same time.
+		Each loaded data file is called <i>dataset</i>.
+		Having multiple datasets loaded, the users can switch between datasets easily.
+		Users can also create a new dataset from a subset of the loaded dataset (Section 3.3).
+		For example, users loaded the dataset and remove patients who survived from the dataset then save it as new dataset called "dead patients". 
+		All datasets are listed in the Data Manager Tab.
+	</p>
+	<p>
+		To start the analysis, let's load the dataset (Section 3.2).
+	</p>
+</div>
+
+<h2>Loading dataset</h2>
+
+<ol class="instructions">
+	<li>Click "Open" on top right corner of Data Manager tab, which brings up a pop-up dialog.</li>
+	<li>Select the input file and click "Open".</li>
+	<li>
+		If the input file is loaded successfully, 
+		the dataset will show under "Loaded datasets". 
+		Click the name of the dataset ("untitled" is the default value), 
+		the total number of records will be displayed to give an estimate of the size of the dataset.
+	</li>
+	<li>Click the button "Explore in this window" and the visualization of the selected dataset will appear.</li>
+	<li>
+		If this is the first time that you are using LifeFlow, 
+		we recommend you to skip the rest of this chapter and read the next chapter that will help you perform basic analysis first.
+	</li>
+</ol>
+
+<figure>
+	<img src="figure/OpenFile_1.jpg" width="150">
+	<img src="figure/OpenFile_2.jpg" width="300">
+	<img src="figure/OpenFile_3.jpg" width="150">
+	<img src="figure/OpenFile_4.jpg" width="150">
+</figure>
+
+<h2>Manipulating dataset</h2>
+	<div class="textBox">
+		<p>
+			Locating an interesting subset of data is an iterative process, 
+			and may involve a number of selection/de-selection actions, in a trial-and-error manner. 
+			Therefore, LifeFlow supports setting up checkpoint versions of the data, 
+			and enables the users to revert to the dataset to the previous checkpoint, 
+			or to the original (from file) version. 
+			After the users successfully locate an interesting subset of records, 
+			they can also rename or save the data as a new dataset.
+			All manipulation actions can be reached from the menu "Dataset" on the top of the application.
+		</p>
+	</div>
+
+<div class="figureBox">
+	<img src="figure/Menu_Dataset.png">
+	<p class="caption">Figure: Dataset manipulation menu</p>
+</div>
+
+<h3>Rename dataset</h3>
+<div class="textBox">
+	<p>
+		This operation changes the name of the dataset. 
+		For example, after selecting all the records end with event "Die" and removing the others. 
+		The data can be renamed into "ends with Die" as a note to the users.
+	</p>
+</div>
+
+<ol class="instructions">
+	<li>Click the menu "Dataset".</li>
+	<li>Click "Rename dataset".</li>
+	<li>Type the new name for the dataset in the dialog.</li>
+	<li>Click "OK".</li>
+</ol>
+
+<h3>Save the dataset as a new dataset</h3>
+<div class="textBox">
+	<p>
+		This operation creates a new dataset with the current data.
+	</p>
+</div>
+<ol class="instructions">
+	<li>Click the menu "Dataset".</li>
+	<li>Click "Save current data as new dataset...".</li>
+	<li>Type the name for the new dataset in the dialog.</li>
+	<li>Click "OK".</li>
+</ol>
+
+<h3>Setup a checkpoint</h3>
+<ol class="instructions">
+	<li>Click the menu "Dataset".</li>
+	<li>Click "Save current data as a checkpoint".</li>
+</ol>
+
+<h3>Revert to checkpoint</h3>
+<ol class="instructions">
+	<li>Click the menu "Dataset".</li>
+	<li>Click "Revert to checkpoint".</li>
+</ol>
+
+<h3>Revert to original data</h3>
+<div class="textBox">
+	<p>
+		Revert the visualization to the original stage, where all records are visible and none is selected. 
+		Note that renaming the dataset does NOT change the original stage. 
+		In case the users want to change the original stage, the dataset must be saved into another file.
+	</p>
+</div>
+<ol>
+	<li>Click the menu "Dataset".</li>
+	<li>Click "Revert to original".</li>
+</ol>
+
+<h2>Saving dataset</h2>
+
+<div class="textBox">
+	<p>
+		After you have finished exploring the dataset in LifeFlow, you may want to save your work. 
+		LifeFlow supports saving the dataset after it has been modified (e.g. selection of a subset of the original dataset), 
+		so the users can load the modified dataset and continue the analysis later. 
+		LifeFlow provides two ways to save the dataset: save to the original file, or save to a new file.
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/DataManagerTab_saveDataset.png">
+	<p class="caption">Figure: Save dataset to file from the Data Manager Tab.</p>
+</div>
+
+
+<h3>Save data to original file</h3>
+	<ol class="instructions">
+		<li>Click "Save to File".</li>
+		<li>Click "Yes" to confirm overwriting the file.</li>
+	</ol>
+
+<h3>Save data as a new file</h3>
+	<ol class="instructions">
+		<li>Click "Save as New File". Specify a folder, where you want to create the file.</li>
+		<li>Click on an existing file name, or type the file name in the text field.</li>
+		<li>Click "Save".</li>
+	</ol>
+
+<h2>Configuration file</h2>
+<div class="textBox">
+	<p>
+		LifeFlow allow users to save configurations, such as colors of the events and other display options, 
+		which makes it more convenient when the users want to perform the analysis later,
+		or copy the same configuration to use with other datasets. 
+	</p>
+	<p>
+		By default, when the users load the data file, 
+		LifeFlow will try to load configuration (config) file with the name <code>&lt;filename&gt;_config.xml</code> in the same directory with the data file.
+		If the file does not exist, it will try to find the default config file 
+		(<code>default_config.xml</code>) in the same directory with the data file. 
+		If the default config file also does not exist, no config file will be loaded automatically. 
+		However, users still can load other config files manually (Section 3.5.1).
+		If the config file is loaded, the Data Manager Tab will show the name of the current config file. (See Figure)
+	</p>
+	<p>
+		The config file is XML, so users can also modify it manually outside of LifeFlow.
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/DataManagerTab_config.png">
+	<p class="caption">Figure: Managing config file from the Data Manager Tab.</p>
+</div>
+
+<h3>Load config file</h3>
+<ol class="instructions">
+	<li>Click the button "Load".</li>
+	<li>Select the config file in the dialog.</li>
+	<li>Click the button "Open". LifeFlow will apply configurations from the config file to the visualizations.</li>
+</ol>
+
+<h3>Reload config file</h3>
+<div class="textBox">
+	<p>This feature is useful when the users modify the XML config file manually outside of LifeFlow.</p>
+</div>
+<ol class="instructions">
+	<li>Click the reload icon in.</li>
+	<li>LifeFlow will reload the config file and apply configurations from the config file to the visualizations.</li>
+</ol>
+<h3>Save config file</h3>
+<ol class="instructions">
+	<li>Click the button "Save".</li>
+	<li>
+		If no config file is already loaded, the rest of the procedures are identical to the "save as" operations. 
+		Otherwise, click the button "Yes" to confirm overwriting the config file.
+	</li>
+</ol>
+
+<h3>Save as another config file</h3>
+<ol class="instructions">
+	<li>Click the button "Save as...".</li>
+	<li>
+		Specify a name for the config file in the text field.
+		Remember that LifeFlow can automatically load the config file if the name is <code>&lt;filename&gt;_config.xml</code>
+		or <code>default_config.xml</code>.
+	</li>
+	<li>Click the button "Save".</li>
+</ol>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

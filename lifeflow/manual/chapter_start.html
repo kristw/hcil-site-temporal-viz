@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 1;
+		var chapterName = "Getting Started";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+
+<h2>Before we start</h2>
+
+<div class="textBox">
+	<p>
+		LifeFlow is a tool designed to analyze temporal event sequences by visualization. 
+		It is recommended that the users read the <a href = http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22>paper</a> first to become familiar about the design of LifeFlow. 
+		The paper can be found at: <a href = http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22>http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22</a>
+	</p>
+</div>
+
+<h2>System requirements</h2>
+<div class="textBox">
+	<p>
+		LifeFlow can be used on systems running either Mac OS X or Microsoft Windows. The minimum system requirements are:
+	</p>
+	<ul>
+		<li>Java Runtime Environment (JRE) 1.6.0 or newer. Please see <a href = "appendix.html">Appendix A</a> for how to verify the JRE version on your system.</li>
+		<li>Screen resolution at least 1024x768</li>
+		<li>(recommended) More than 2GB of memory</li>
+	</ul>
+	<p>
+		LifeFlow has been tested on Mac OS X 10.5-10.7, Microsoft Windows XP and Windows 7.
+	</p>
+</div>
+
+<h2>How to download and install LifeFlow?</h2>
+<div class="textBox">
+	<p>
+		Currently, LifeFlow is not publicly available. Please email <span class="email">ude.dmu.sc@wtsirk</span> for the executable.
+	</p>
+	<p>
+		After extracting the zip file, run LifeFlow by:
+	</p>
+	<ul>
+		<li>on Windows: double-clicking the file <b>lifeflow_win.bat</b> in the extracted directory.</li>
+		<li>on Mac: double-clicking the file <b>lifeflow_mac.command</b> in the extracted directory.</li>
+	</ul>
+</div>
+
+<h2>Data format</h2> 
+<div class="textBox">
+	<p>
+		Four different files are used in LifeFlow.
+	</p>
+	<ul>
+		<li><b>Event data file (.txt)</b> contains the event type, the timestamp, and the event attribute</li>
+		<li>(Optional) <b>Attribute data file (.attrib)</b> contains the record attribute</li>
+		<li>(Optional) <b>Config file (.xml)</b> keeps the preferred settings of visualization</li>
+		<li>(Optional) <b>Log file (.log)</b> keeps the modification log to the data</li>
+	</ul>
+</div>
+
+<h3>Event Data file</h3> 
+
+<div class="textBox">
+	<p>
+		It is a 4-column tab-delimited text file.
+	</p>
+	<ul> 
+		<li>1st column is record ID.
+		<li>2nd column is event type.
+		<li>3rd column is date and time.
+		<li>4th column contains event attributes in the format:
+		<p> 
+		<span style="background-color:#dddddd ; padding:3px ; border: 1px solid #777777"> 
+		<i>attribute-name1</i><b>="</b><i>attribute-value1</i><b>"</b></span> 
+		&nbsp;;
+		<span style="background-color:#dddddd ; padding:3px ; border: 1px solid #777777"> 
+		<i>attribute-name2</i><b>="</b><i>attribute-value2</i><b>"</b></span> 
+		&nbsp;; ...
+		</p> 
+		Use ; to separate between attributes.
+		Leave this column blank if you do not have any event attribute.
+	</ul> 
+</div>
+
+<br>
+<table align="center">
+		<caption>
+			Table 1.4.1: Sample event data file (<a href="files/sample_data.txt">sample_data.txt</a>)
+		</caption>
+		<tr>
+			<th>Record ID</th><th>Event type</th><th>Date and Time</th><th>Event attributes</th>
+		</tr>
+		<tr>
+			<td>4318</td><td>Arrival</td><td>2010-01-19 03:53:00</td><td>Account No.="24287939"; Entrance-Diagnosis="Heart attack"; Exit-Diagnosis="Heart attack"</td>
+		</tr>
+		<tr>
+			<td>4318</td><td>ER</td><td>2010-01-19 03:53:00</td><td></td>
+		</tr>
+		<tr>
+			<td>4318</td><td>ICU</td><td>2010-01-19 03:53:00</td><td>Room No.="125"</td>
+		</tr>
+		<tr>
+			<td>4318</td><td>Floor</td><td>2010-01-19 03:53:00</td><td>Room No.="854"</td>
+		</tr>
+		<tr>
+			<td>4318</td><td>Exit-DISC</td><td>2010-01-19 06:44:00</td><td>ED-Dispo="DISC"; Exit-Diagnosis="Heartburn"</td>
+		</tr>
+		<tr>
+			<td>5397</td><td>Arrival</td><td>2010-01-19 03:53:00</td><td>Account No.="24287939"; Entrance-Diagnosis="Heart attack"; Exit-Diagnosis="Heart attack"</td>
+		</tr>
+		<tr>
+			<td>5397</td><td>ER</td><td>2010-01-19 03:53:00</td><td></td>
+		</tr>
+		<tr>
+			<td>5397</td><td>Floor</td><td>2010-01-19 03:53:00</td><td>Room No.="854"</td>
+		</tr>
+		<tr>
+			<td>5397</td><td>Exit-DISC</td><td>2010-01-19 06:44:00</td><td>ED-Dispo="DISC"; Exit-Diagnosis="Heartburn"</td>
+		</tr>
+	</table>
+
+ 
+<h3>Attribute Data file (optional)</h3> 
+
+<div class="textBox">
+	<p>
+		This file store the non-temporal attributes of each record. You are not required have to have this file if you do not have any record attribute.
+		It is a 3-column tab-delimited text file, which has the same name as the event data file but with extension *.attrib.
+	</p>
+	<ul> 
+		<li>1st column is record ID.
+		<li>2nd column is attribute name.
+		<li>3rd column is attribute value.
+	</ul> 
+</div> 
+
+<br>
+
+<table border = "1" width="400" align="center">
+	<caption>
+		Table 1.4.2: Sample attribute data file (<a href="files/sample_data.attrib">sample_data.attrib</a>)
+	</caption>
+	<tr>
+		<th>Record ID</th><th>Attribute name</th><th>Attribute value</th>
+	</tr>
+	<tr>
+		<td>4318</td><td>Gender</td><td>Male</td>
+	</tr>
+	<tr>
+		<td>5397</td><td>Gender</td><td>Female</td>
+	</tr>
+</table>
+
+<h3>Config File (optional)</h3>
+
+<div class="textBox">
+	<p>
+		The config file helps the users to bring back their previously used setting and continue the analysis (Section 4.1). 
+		For example, their preferred color of the event. Another important aspect is to carefully maintain a log file about where the data came from, what modifications were made, etc. 
+		To help convert data to the LifeFlow format we are developing the DataKitchen application. 
+	</p>
+</div>
+
+<h2>Sample data to use while learning LifeFlow</h2>
+
+<div class="textBox"> 
+	<p>
+		Throughout the manual, a sample dataset is used to demonstrate the features in LifeFlow. Please email <span class="email">ude.dmu.sc@wtsirk</span> for the sample file.
+	</p>
+	<p>
+		The sample data is a generated set of electronic medical records with six event types:
+	</p>
+	<ul>
+		<li>Arrival</li>
+		<li>Emergency</li>
+		<li>ICU</li>
+		<li>Floor</li>
+		<li>Die</li>
+		<li>Discharge-Alive</li>
+	</ul>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 2;
+		var chapterName = "Overview of the User Interface";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<div class="textBox">
+	<p>
+		The LifeFlow user interface has three panels:
+	</p>
+	<ul>
+		<li>Control Panel on the left</li>
+		<li>Overview Panel in the middle</li>
+		<li>Timeline Panel on the right</li>
+	</ul>
+</div>
+
+<div class="figureBox">
+	<img src="figure/LifeFlow_Overview.jpg" width="800">
+	<p class="caption">Figure 2.1: The overview of LifeFlow panels.</p>
+</div>
+
+<h2>Overview Panel</h2>
+
+<div class="textBox">
+	<p>
+		In LifeFlow, the detailed data is displayed in the Timeline Panel. 
+		LifeFlow transforms this detailed data for display in the Overview Panel in two steps: aggregation and visualization.
+	</p>
+	<p>
+		First, the data records are aggregated into a tree-based data structure called a tree of sequences, based on the prefixes of their event sequences. 
+		Once the tree of sequences is created, it can be visualized in the LifeFlow Overview Panel.
+	</p>
+	<p>
+		Each node of the tree is represented with a color-coded event bar, matching the color of the event type. 
+		The height of a bar is determined by the number of records in that node proportionally to the total number of records. 
+		The horizontal gap between a bar and its parent is proportional to the mean time between the two events.
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/LifeFlow_Design.png" width="400">
+	<p class="caption">Figure 2.2: The design of LifeFlow.</p>
+</div>
+
+<div class="textBox">
+	<p>
+		For example, a record that contains event sequence Arrival -> ER -> ICU and a record that contains event sequence Arrival -> ER -> Floor, share the same prefix sequence Arrival -> ER. 
+		The records are grouped event-by-event from the beginning of the event sequences to the end. 
+		In Figure 2.2, all records start with the blue event so they are grouped together (indicated by dashed rectangle) in to a blue tree node. 
+		Then, they all also have the pink event, so they are still grouped together into a pink node. 
+		In the next step, two of them have red events while the other two have green events so they are split into red and green nodes. 
+		Then do the same for the rest of the event sequences. 
+	</p>
+
+<!--
+In some situations, users may chose to group consecutive events of the same type together when building the tree of sequences. For example, two consecutive transfers to
+Floor can be treated as one transfer with the second transfer ignored. A record with sequence Arrival -> ER -> Floor -> Floor -> ICU is treated as Arrival -> ER -> Floor -> ICU. This aggregation option can be turned on or off as needed.
+-->
+
+	<p>
+		For more details, visit the project webpage at: <a href = http://www.cs.umd.edu/hcil/lifeflow>http://www.cs.umd.edu/hcil/lifeflow</a>
+	</p>
+</div>
+
+<h2>Timeline Panel</h2>
+
+<div class="textBox">
+	<p>
+		In LifeFlow, the detailed data is displayed in the Timeline Panel. 
+		As in LifeLines2, raw data are displayed on a horizontal timeline, with colored triangles representing events. 
+		Also as in LifeLines2, each row represents a record. Note that not all functionalities of LifeLines2 are included. 
+		The summary feature of LifeLines2, for example. However, some of the missing features of LifeLines2 can be achieved using Overview Panel. 
+		For example, the summary feature, which allows the users to select records with certain elapsed time between two events, can be performed by selecting from distribution using Overview Panel. 
+		LifeLines2 uses the Align, Rank, Filter framework to facilitate visual analysis.
+	</p>
+	<p>
+		For more details, visit the LifeLines2 project webpage at: <a href = http://www.cs.umd.edu/hcil/lifelines2>http://www.cs.umd.edu/hcil/lifelines2</a>
+	</p>
+</div>
+
+<h2>Control Panel</h2>
+
+<div class="textBox">
+	<p>
+		The Control Panel consists of two tabs: Data Manager and Control.
+	</p>
+	<ul>
+		<li><b>Data Manager Tab</b> controls loading/saving data and configuration files. </li>
+		<li><b>Control</b> Tab provides options for manipulating the visualizations and data exploration. </li>
+	</ul>
+	<p>
+		In the following chapter, we will describe how to use the Data Manager Tab to load your data into LifeFlow.
+		The Control Tab, which you will spend more time with, will be described in the rest of the manual. 
+	</p>
+</div>
+
+<table border-0 width="700" cellpadding="10" align="center" class="transparent">
+	<tr>
+		<td>
+			<div class="figureBox">
+			<img src="figure/DataManager.jpg" width="200">
+			<p class="caption">Figure 2.3: Data Manager tab.</p>
+			</div>
+		</td>
+		<td>
+			<div class="figureBox">
+			<img src="figure/Control.jpg" width="200">
+			<p class="caption">Figure 2.4: Control tab.</p>
+			</div>
+		</td>
+	</tr>
+</table>
+	
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

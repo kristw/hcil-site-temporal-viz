@@ -1,0 +1,75 @@
+/*
+ * Style for LifeFlow User Manual
+ * by Krist Wongsuphasawat
+ */
+
+body,html {
+	margin: 0px;
+	padding:0 ;
+	color:#222222;
+	background: #eeeeee;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+#wrap{
+	margin:0px auto;
+}
+
+#nav a {background: none; border:none; text-decoration: none; margin: 0 5px; padding: 3px 5px;  }
+#nav a.activeSlide { border: 1px solid #ccc; background: #dedede;  }
+#nav a:focus { outline: none; }
+
+h2 a{text-decoration:none; color: #7a9d5b}
+h2 a:hover{color:#7c8a5b} 
+
+a:focus, a:hover {color:#09f;}
+a {color:#06c;text-decoration:underline;}
+.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
+.hide {display:none;}
+.quiet {color:#666;}
+.loud {color:#000;}
+.highlight {background:#ff0;}
+
+.textBox{
+	text-align: justify;
+	padding: 15px;
+	padding-right: 15px;
+/*	border-radius: 3px;
+	background: #dfdfdf;*/
+}
+
+.textBox p{
+	margin-top: 4px;
+	margin-bottom: 5px;
+}
+
+.textBox p+p, .textBox ul+p, .textbox ol+p {
+	margin-top: 18px;
+}
+
+.slideBound{
+	background: #fefefe;
+	border: 1px solid #cccccc;
+	padding: 0px;
+	width: 1024px;
+	height: 768px;
+	margin:0 auto;
+}
+
+.floatBox{
+	padding: 10px;
+	background: #333333;
+	opacity: 0.8;
+	color: #ffffff;
+	position:absolute;
+}
+
+pre, code, .inlineCode{
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-size: 1em !important;
+	color: #4D0000;
+}

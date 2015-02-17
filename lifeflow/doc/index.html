@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Manual</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+</script>
+<!-- end -->
+
+<p class="introduction">
+This documentation provides a guide to <a href="http://www.cs.umd.edu/hcil/lifeflow">LifeFlow</a> source code and further development. 
+LifeFlow is a research project in the Human-Computer Interaction Lab (HCIL) at the University of Maryland. 
+Please visit the <a href="http://www.cs.umd.edu/hcil/lifeflow">website</a> for more details.
+LifeFlow and this developer's guide are created by Krist Wongsuphasawat.
+</p>
+
+<div id="tableOfContentsWrap">
+	<h1>Documentation</h1>
+	
+	<script language="JavaScript">
+		var sectionList = [];
+		{
+			var section = new Section("Getting Started");
+			section.addSubsection(new Section("Before we start"));
+			section.addSubsection(new Section("Development environment"));
+			section.addSubsection(new Section("Libraries"));
+			sectionList.push(section);
+		}
+		// {
+		// 	var section = new Section("Terminology");
+		// 	sectionList.push(section);
+		// }
+		{
+			var section = new Section("Design");
+			sectionList.push(section);
+			section.addSubsection(new Section("Software Architecture"));
+			section.addSubsection(new Section("Code Organization"));
+		}
+		{
+			var section = new Section("Data Structures");
+			sectionList.push(section);
+			section.addSubsection(new Section("Time"));
+			section.addSubsection(new Section("Events, Records and Instances"));
+			section.addSubsection(new Section("Datasets"));
+		}
+		// {
+			// var section = new Section("Code Organization");
+			// sectionList.push(section);
+		// }
+		//PureMVC
+		//Styling
+		//Logging
+		//- Debuggin Log
+		//- Users' Interactions log
+		createTableOfContents(sectionList);
+	</script>
+	
+	<h1>Custom Components</h1>
+	
+	<script language="JavaScript">
+		var sectionList = [];
+		{
+			var section = new Section("Scale", "customC_Scale.html");
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("TextFileProcessor", "customC_TextFileProcessor.html");
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Right-Click Menu", "customC_RightClickMenu.html");
+			sectionList.push(section);
+		}
+		{
+			var section = new Section("Reorderable checklist", "customC_ReorderableChecklist.html");
+			sectionList.push(section);
+		}
+		createTableOfContents(sectionList);
+	</script>
+
+	<h1>Tutorial</h1>
+	
+	<ol class="tutorialTableOfContents">
+		<li>
+			<a href = "tutorial1.html">Introduction to LifeFlow User Interface and PureMVC</a>
+		</li>
+	</ol>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

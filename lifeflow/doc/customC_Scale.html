@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Custom Components</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript" type="text/javascript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Custom Components'); // Modify 'Template page' to the page title
+	lfdoc_addBreadCrumbStep('Scale'); // Modify 'Template page' to the page title
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		// lfdoc_setChapter(20);
+		// lfdoc_addSectionNo();
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Custom Components: Scale</h1>
+
+<h2>Concept</h2>
+
+<div class="textBox">
+	<p>
+		I made classes for plotting and rendering scales, 
+		such as time scales or number scales. 
+		The idea is to separate the scale into two parts: 
+	</p>
+	<ul>
+		<li><b>Plotters</b> -- which plot the scales and are totally separated from the user interface and drawing.</li>
+		<li><b>Renderers</b> which take the ticks from the plotters and draw them on the screen.</li>
+	</ul>
+	<p>
+		This way the plotter can be reused and anybody can write a renderer and use an existing plotter, or vice versa.
+	</p>
+</div>
+
+<h2>Implementation</h2>
+
+<div class="textBox">
+	<p>
+		These classes are in the package <code>edu.umd.cs.hcil.lifeflow.components.scale</code>. 
+		<ul>
+			<li>Plotters are in <code>edu.umd.cs.hcil.lifeflow.components.scale.plotter</code></li>
+			<li>Renderers are in <code>edu.umd.cs.hcil.lifeflow.components.scale.renderer</code>.</li>
+		</ul> 
+	</p>
+</div>
+
+<h3>1. Plotter</h3>
+
+<div class="textBox">
+	<p>
+		Plotter classes extends <code>AbstractScalePlotter</code>.
+		These classes can plot a scale when given min, max value and length of the scales.
+
+		<pre class="brush: java">
+			public ArrayList&lt;Tick&gt; plot(long minimumIn, long maximumIn, float lengthIn);
+		</pre>
+	</p>
+	<p>
+		Users can also customize other parameters:
+		<ul>
+			<li>left offset</li>
+			<li>right offset</li>
+			<li>minimum gap between ticks (will not create two ticks closer than this gap)</li>
+		</ul>
+	</p>
+	<p>
+		The method returns an <code>ArrayList</code> of <code>Tick</code> that contains position, label, gap between ticks of that level and level of the tick. 
+		The level tells the precision of that tick, such as 0=Year, 1=Month, ... (depends on how each plotter define its level, but generally a higher level means a more precise tick.)
+	</p>
+</div>
+
+<h3>2. Renderer</h3>
+
+<div class="textBox">
+	<p>
+
+		Renderer classes extends <code>AbstractScaleRenderer</code>.
+		These classes extend <code>PNode</code> and draw the ticks from the plotters. 
+		I separate them into two subcategories: HeaderRenderer for drawing the headers and other renderers.
+
+		The subclasses must implement method
+		
+		<pre class="brush: java">
+		public void renderTicks(ArrayList&lt;Tick&gt; ticks);
+		</pre>
+		
+		Other parameters:
+		<ul>
+			<li>
+				plot left-to-right or right-to-left
+			</li>
+			<li>
+				minimum gap between labels (will not draw the label if the gap is smaller than this)
+			</li>
+		</ul>
+	</p>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

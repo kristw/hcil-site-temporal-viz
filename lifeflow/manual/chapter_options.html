@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 6;
+		var chapterName = "Visualization Options";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h2>Overview Panel</h2>
+<div class="figureBox"> 
+	<img src="figure/OverviewOptions.jpg"> 
+	<p class="caption">Figure: Options of Overview Panel</p> 
+</div> 
+
+<h3>Display mode</h3>
+<div class = "textBox">
+<p>Normally the X-axis is used to represent time. After unchecking the X-axis checkbox, the elapse time of all the events are treated equally. This can be useful when only the sequence of events is of concerned but not the time between events.</p>
+<p>The default use of the Y-axis is to represent the number of records. After unchecking the Y-axis checkbox, LifeFlow displays all the sequences with equal height. This can be useful when the users want to look at some sequences having a small amount of records.</p>
+</div>
+
+<h3>Sort records in distribution</h3>
+<div class = "textBox">
+<p>When showing the distribution, the default setting is to arrange the records in ascending order of the time gap between the two events. An alternative is to arrange the records in ascending order of the time of day of the start event. An example of applying this alternative is to find the possible tendency of the distribution with respect to the time of the start event.</p>
+<p>Unchecking "Show distribution on mouse over" disables the distribution feature. Checking "Group distribution by next event" group the distribution by the sequence of events. This can help the users to see the difference in the distribution with respect to the sequence.</p>
+</div>
+
+<h3>Episode beginning category</h3>
+<div class = "textBox">
+<p>If one of the event is considered to be the episode event, the users can click the radio button and select that event in the pull-down menu. LifeFlow will draw a dotted line between the last preceding event before the episode event to mark the beginning of new episode.</p>
+</div>
+
+<h3>Representative time</h3>
+<div class = "textBox">
+<p>The default criterion to aggregate the time is mean. In some special cases the users may want to switch from mean to other criteria, such as medium, max, min, or standard deviation.</p>
+<p>Repeated events can be merged by checking the checkbox "Merge repeated events". After checking "Fill gap with previous event's color", the color of the preceding event will be used to fill the gap.</p>
+</div>
+
+<h3>Layout parameters</h3>
+
+<h2>Timeline Panel</h2>
+<div class="figureBox"> 
+	<img src="figure/TimelineOptions.jpg"> 
+	<p class="caption">Figure: Options of Timeline Panel</p> 
+</div> 
+
+<h3>Show label</h3>
+<div class = "textBox">
+<p>Unchecking the checkbox "Show label" hides the label besides the triangle in the Timeline Panel.</p>
+</div>
+
+<h3>Layout parameters</h3>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 7;
+		var chapterName = "How to";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<ol class="question">
+<li>How to change the placement of events from absolute time to relative time with respect to one specific event, e.g. ICU?</li>
+<p class = "textBox">Align the records by that event (ICU) and the rest of the events will be displayed by their relative time to that event accordingly. (<a href = "chapter_basic.html#4.6">4.6</a> Alignment)</p>
+
+<li>In the Overview Panel, how to set the event order precedence for events that happen at the same time?</li>
+<p class = "textBox">
+	The events that happen at the same time will be sorted in the order of the event types in the legend panel. 
+	You can drag the event types in the legend up and down to customize. (<a href = "chapter_basic.html#4.1.4">4.1.4</a> Change the order of event types)
+</p>
+</ol>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowManual.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+
+	<script language="JavaScript">
+		//* CHANGE FOR EACH PAGE
+		var chapterNo = 5;
+		var chapterName = "Advanced Analysis";
+	
+		createTitle(chapterNo, chapterName);
+	</script>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep(chapterName);
+	lfdoc_createBreadCrumb();
+	createH1(chapterNo, chapterName);
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(chapterNo);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h2>Attributes</h2>
+<div class="textBox">
+	<p>
+		There are two kinds of attributes in LifeFlow, which are record attributes and event attributes.
+	</p>
+	<ul>
+		<li><b>Record attribute</b> is attached to a record, which contains a sequence of events, to store any information about the record. For example, the gender of the patient or the county in which the patient live.</li>
+		<li><b>Event attribute</b> is attached to an event, which stores the property relevant to the event. For example, the name of the attending physician can be a property of the event "Arrival".</li>
+	</ul>
+</div>
+
+<h3>Check/uncheck the record attributes</h3>
+<div class="textBox">
+	<p>
+		After loading the dataset with the attribute file, the record attributes will be included in the Attribute tab, which can be found in the bottom of the Control Panel. 
+		Record attributes can be used to classified the records in a tree manner. 
+		Checking/unchecking the checkbox of the attribute display/hide the value of corresponding attribute in the left end of the row after grouping the records by their values. 
+		Multiple attributes can be included, where LifeFlow takes the attributes one at a time to group the records into a tree structure.
+	</p>
+</div>
+
+<h2>Measurement tool</h2>
+<div class="textBox">
+	<p>
+		The distribution of the elapsed time between two adjacent events can be found simply by moving the mouse cursor to the blank area between the two corresponding vertical bars in the Overview Panel. 
+		What the measurement tool does is to show the distribution of the elapsed time between two non-adjacent events. 
+		The users can select from the distribution after the distribution is shown.
+	</p>
+</div>
+<ol class="instructions">
+	<li>Click the button "Measurement Tool" at the top of the Overview Panel.</li>
+	<li>Select the first event bar by clicking the bar in the Overview Panel.</li>
+	<li>Select the second event bar similarly.</li>
+	<li>After the first 3 steps, the distribution will be displayed. Click the button "Select from distribution" in the dialog enables the users to select records from distribution.</li>
+</ol>
+
+<h2>Ranking/Ordering of records</h2>
+
+<h3>Change the ranking in Overview Panel</h3>
+<div class="textBox">
+	<p>
+		LifeFlow arrange the bars in the Overview Panel with the ranking criteria the users specified. 
+		The default setting is to rank the patterns in descending order of the number of records. 
+		For example, the pattern having the most number of records with be placed at the top of the panel. 
+		The users may switch to another criteria by clicking the radio button in front of the ranking criteria. 
+		Also they can change the ordering to be ascending or descending similarly.
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/RankTab.jpg">
+	<p class="caption">Figure: The rank tab of Overview Panel.</p>
+</div>
+
+<h3>Change the ranking in Timeline Panel</h3>
+<div class="textBox">
+	<p>
+		In the TimeLine Panel, default setting is to show selected instances on top. 
+		The users may uncheck the checkbox so the selected records will not show on top. 
+		Note that the selected records are still highlighted, but the users will have to browse the list of records to find them. 
+		The ordering of the list follows the criteria specified by the users. 
+		A possible scenario to rank the records is to order them by the number of event ICU, which	help the users to focus on the patient who went to ICU many times.
+	</p>
+</div>
+<div class="figureBox">
+	<img src="figure/RankTab2.jpg">
+	<p class="caption">Figure: The rank tab of Timeline Panel.</p>
+</div>
+
+<div class="textBox">
+	<p>The default order is by the record's name. To add other ranking criteria:</p>
+</div>
+<ol class="instructions">
+	<li>Click the button "Add ranking", which will add a new criterion.</li>
+	<li>Select the event from the pull-down list and click the radio button to choose either ascending or descending order.</li>
+	<li>(Optional) Repeat step 2 to complete adding all the criteria.</li>
+	<li>Click the button "Rank".</li>
+</ol>
+
+<figure>
+<img src="figure/LL2_Rank_1.jpg" width="200">
+<img src="figure/LL2_Rank_2.jpg" width="200">
+<img src="figure/LL2_Rank_4.jpg" width="200">
+</figure>
+
+<div class="textBox">
+	<p>
+		Note that the order to apply these criteria can be changed by click the green up/down arrow, which will move the criterion up/down by one place. 
+		Clicking the cross removes the criteria.
+	</p>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

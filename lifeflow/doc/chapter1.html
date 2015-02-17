@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Chapter 1</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Chapter 1');
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(1);
+		lfdoc_addSectionNo();
+	});
+</script>
+<!-- end -->
+
+<h1>Chapter 1: Getting Started</h1>
+
+<h2>Before we start</h2>
+
+<div class="textBox">
+	<p>
+		LifeFlow is a tool designed to analyze temporal event sequences by visualization. 
+		To understand more about the visualization, read the <a href = http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22>paper</a> first to become familiar about the design of LifeFlow. 
+		The paper can be found at: <a href = http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22>http://www.cs.umd.edu/localphp/hcil/tech-reports-search.php?number=2010-22</a>
+	</p>
+</div>
+
+<h2>Development environment</h2>
+<div class="textBox">
+	<p>
+		LifeFlow was developed in Java 1.6 using <a href="http://www.eclipse.org/downloads/">Eclipse</a>.
+	</p>
+</div>
+
+<h2>Libraries</h2>
+<div class="textBox">
+	<p>
+		LifeFlow uses many libraries in its implementation. 
+		The three most important libraries that are used almost everywhere in the code and you should learn about to be able to understand the code are:
+	</p>
+	<ul>
+		<li>
+			<a href="http://www.cs.umd.edu/hcil/jazz/">
+			Piccolo2D 
+			</a>:
+			Scene graph library for Java
+		</li>
+		<li>
+			<a href="http://puremvc.org">
+			PureMVC
+			</a>:
+			Model-View-Controller framework
+		</li>
+		<li>
+			<a href="http://www.miglayout.com">
+			MigLayout: 
+			</a>
+			Layout manager for Swing components
+		</li>
+	</ul>
+	<p>
+		These libraries are also used, but in less places and mostly are simple calls to their APIs:
+	</p>
+	<ul>
+		<li>
+			<a href="http://www.slf4j.org">
+			SLF4J
+			</a>: 
+			Wrapper for logging libraries
+		</li>
+		<li>
+			<a href="http://logging.apache.org/log4j">
+			Apache log4j
+			</a>: 
+			Logging library
+		</li>
+		<li>
+			<a href="http://swinglabs.org">
+			SwingX
+			</a>:
+			Custom Swing Components
+		</li>
+		<li>
+			<a href="http://flamingo.dev.java.net">
+			Flamingo
+			</a>:
+			Custom Swing Components
+		</li>
+		<li>
+			<a href="http://code.google.com/p/macwidgets">
+			MacWidgets
+			</a>:
+			Swing components library that makes components look "Mac"
+		</li>
+		<li>
+			<a href="http://commons.apache.org/math">
+			Apache Commons-Math
+			</a>:
+			Math and statistics library
+		</li> 
+	</ul>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

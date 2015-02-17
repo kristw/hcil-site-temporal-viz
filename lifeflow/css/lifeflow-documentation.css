@@ -1,0 +1,232 @@
+/*
+ * Style for LifeFlow User Manual
+ * by Krist Wongsuphasawat
+ */
+
+body,html {
+	margin:0;
+	padding:0;
+	color:#222222;
+	background: #111111;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+
+}
+
+ul{
+	margin: 8px;
+	padding-left: 25px;
+}
+
+ol.tutorialTableOfContents{
+	padding-left: 25px;
+    list-style-type: none;
+    counter-reset: level1;
+}
+
+ol.tutorialTableOfContents li:before{
+	content: "Tutorial " counter(level1) ":";
+    counter-increment: level1;
+}
+
+ol.instructions li{
+	text-align: justify;
+	padding-right:10px;
+}
+
+ol.tableOfContents{
+	padding-left: 25px;
+    list-style-type: none; 
+    counter-reset: level1;
+}
+/*ol.tableOfContents li:before {
+    content: counter(level1) ". ";
+    counter-increment: level1;
+}*/
+ol.tableOfContents li ol {
+    list-style-type: none;
+    counter-reset: level2;
+}
+/*ol.tableOfContents li ol li:before {
+    content: counter(level1) "." counter(level2) " ";
+    counter-increment: level2;
+}*/
+ol.tableOfContents li span { /* For IE6/7. */
+    margin: 0 5px 0 -25px;
+}
+
+a:link, a:visited{
+	color: #0066ff;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #cd862b;
+}
+
+h1{
+	font-size: 24px;
+}
+
+h2{
+	font-size: 20px;
+	color: #666666;
+}
+
+h3{
+	font-size: 18px;
+	color: #666666;
+}
+
+h4{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	color: #6f6f6f;
+}
+
+table{
+	border: 0px;
+	padding: 5px;
+}
+
+table caption{
+	font-size: 10pt;
+}
+
+td, th{
+	border: 0px;
+	border-radius: 4px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+td{
+	background: #dddddd;
+}
+
+th{
+	font-weight:bold;
+	background: #7DB567;
+}
+
+table.transparent, table.transparent tr td{
+	background: none;
+}
+
+#mainWrap{
+	margin: 0px auto;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding: 0px;
+	width: 900px;
+	background: #efefef;
+}
+
+#contentWrap{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#tableOfContentsWrap{
+	padding-left: 10px;
+	padding-right: 10px;
+	width:600px;
+}
+
+#header{
+	background: #373737;
+	text-align: left;
+	color: #eeeeee;
+	padding: 10px;
+	padding-top: 13px;
+}
+
+#footer{
+	margin-top: 5px;
+	text-align: center;
+	font-size: 12px;
+	padding: 10px;
+}
+
+.lifeflowText{
+	font-size: 30px;
+	font-weight: bold;
+	color: #cccccc;
+}
+
+.subtitle{
+	font-size: 30px;
+	color: #5CC229;
+}
+
+p.introduction{
+	text-align: justify;
+	padding: 12px;
+	border-radius: 3px;
+	background: #dfdfdf;
+}
+
+.textBox{
+	text-align: justify;
+	padding: 10px;
+	padding-right: 11px;
+	border-radius: 3px;
+	background: #dfdfdf;
+}
+
+.textBox p{
+	margin-top: 4px;
+	margin-bottom: 5px;
+}
+
+.textBox p+p, .textBox ul+p, .textbox ol+p {
+	margin-top: 18px;
+}
+
+.figureBox{
+	margin: 0px auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div.figureBox img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.caption{
+	font-size: 10pt;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.footerRule{
+	margin-top: 2px;
+	border:none;
+	border-bottom: 1px solid #aaaaaa; 
+	height: 0px;
+}
+
+.email{
+	unicode-bidi:bidi-override; direction: rtl;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #cccccc;
+	color: #343434;
+	padding: 2px 7px 3px 7px;
+	margin-left:4px;
+	margin-right:4px;
+	font-weight: bold;
+}
+
+pre, code, .inlineCode{
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-size: 1em !important;
+	color: #4D0000;
+}

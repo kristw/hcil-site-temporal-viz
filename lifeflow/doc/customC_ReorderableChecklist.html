@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide - Custom Components</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript" type="text/javascript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Custom Components'); // Modify 'Template page' to the page title
+	lfdoc_addBreadCrumbStep('Reorderable Checklist'); // Modify 'Template page' to the page title
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		// lfdoc_setChapter(20);
+		// lfdoc_addSectionNo();
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Custom Components: Reorderable Checklist</h1>
+
+<h2>Concept</h2>
+
+<div class="textBox">
+	<p>
+		Users can drag and drop to change the order of items in the list. 
+		The component will trigger events when checked, order changed or data (such as text in the figure belof) changed. 
+		The number of checkboxes is also customizable. 
+		This component is implemented using swing’s <code>JTable</code> with custom <code>CellRenderer</code>, <code>CellEditor</code> and <code>TransferHandler</code> (for drag and drop).
+	</p>
+</div>
+
+<div class="figureBox">
+	<img src="figure/customC/reorderable_checklist.png">
+	<p class="caption">Figure 1: LegendTable: An example of reorderable checklist component</p>
+</div>
+
+<h2>Implementation</h2>
+
+<div class="textBox">
+	<p>
+		The code is in package <code>edu.umd.cs.hcil.lifeflow.components.legend</code>. There are seven classes:
+	</p>
+	<ul>
+		<li>
+			<code>Legend</code>: Component to draw in each row
+		</li>
+		<li>
+			<code>LegendModel</code>: Data model for the Legend component (extends from custom class <code>CheckableModel</code>)
+		</li>
+		<li>
+			<code>LegendModelTransferable</code>:  Wrap <code>LegendModel</code> for drag and drop transfer
+		</li>
+		<li>
+			<code>LegendTable</code>:  The checklist (extends from swing’s <code>JTable</code>)
+		</li>
+		<li>
+			<code>LegendTableChangeListener</code>: Declare listener when checked, order changed, or model changed.
+		</li>
+		<li>
+			<code>LegendTableModel</code>: Contains list of <code>LegendModel</code>. It extends from custom class <code>CheckableTableModel</code>, which extends from swing’s <code>DefaultTableModel</code>.
+		</li>
+		<li>
+			<code>LegendTransferHandler</code>: Describes drag and drop action
+		</li>
+	</ul>
+</div>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript" type="text/javascript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>

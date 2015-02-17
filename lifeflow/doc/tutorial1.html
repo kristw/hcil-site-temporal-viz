@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<!-- include stylesheet/javascript -->
+	<script src="js/lifeflowDoc.js" language="JavaScript" type="text/javascript"></script>
+	<!-- end -->
+	
+	<title>LifeFlow Developer's Guide: Tutorial 1</title>
+</head>
+
+<body>
+
+<!-- call javascript to create header -->
+<script language="JavaScript">
+	createHeader();
+	lfdoc_addBreadCrumbStep('Tutorial 1');
+	lfdoc_createBreadCrumb();
+	
+	$(document).ready(function() {
+		lfdoc_setChapter(1);
+		lfdoc_addSectionNo();
+		SyntaxHighlighter.all();
+	});
+</script>
+<!-- end -->
+
+<h1>Tutorial 1: Introduction to LifeFlow User Interface and PureMVC</h1>
+
+<div class="textBox">
+	<p>
+		This tutorial teaches how to use <a href="http://puremvc.org">PureMVC</a> while learning how to add new components to the user interface.
+		If you are not familiar with Model-View-Controller (MVC) pattern, <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Wikipedia</a> can be your friend. 
+	</p>
+	<p>
+		In PureMVC, each <i>view</i> is wrapped by a <i>mediator</i> while each <i>model</i> is wrapped by a <i>proxy</i>.
+		The mediator and proxy provide PureMVC functionalities while leaving the original view and model independent from PureMVC. 
+		The central <i>Controller</i> is called <i>Facade</i>, which acts like a mothership that knows about all views and models. 
+		The facade let all views and models communicate without knowing each other. 
+	</p>
+	<p>
+		We will create a new panel and add it to the user interface, then add some interactions that gives you some taste of PureMVC.  
+	</p>
+</div>
+
+<h2>Add a new panel to the application window</h2>
+<div class="textBox">
+	<p>
+		All views and windows in LifeFlow are in package <code>edu.umd.cs.hcil.lifeflow.mvc.view</code>.
+		The top-level container that inherits from JFrame is <code>MainWindow</code>.
+		<code>MainWindow</code> contains menu bar and <code>MainPanel</code>. which contains everything else.
+		So, we will create <code>ExamplePanel2</code> and add it to <code>MainPanel</code>.		
+		See <code>edu.umd.cs.hcil.lifeflow.mvc.view.ExamplePanel</code> for example code.
+	</p>
+</div>
+<ol class="instructions">
+	<li>
+		Create a new JPanel called <code>ExamplePanel2</code> in package <code>edu.umd.cs.hcil.lifeflow.mvc.view</code>. 
+		If you need to refresh your memories about Swing, go to <a href="http://download.oracle.com/javase/tutorial/uiswing/TOC.html">Java Swing tutorial</a>. 
+	</li>
+	<pre class="brush: java">
+		public class ExamplePanel2 extends JPanel {
+		
+			private static final long serialVersionUID = 1L;
+		
+			public JButton button1;
+			public JButton button2;
+			public JButton button3;
+			public JButton button4;
+			public JLabel label1;
+		
+			public ExamplePanel2() {
+				button1 = new JButton("Button1");
+				this.add(button1);
+				button2 = new JButton("Button2");
+				this.add(button2);
+				button3 = new JButton("Button3");
+				this.add(button3);
+				button4 = new JButton("Button4");
+				this.add(button4);
+				label1 = new JLabel("Label1");
+				this.add(label1);
+			}
+			
+		}
+	</pre>
+
+	<li>
+		Next, we will add this panel to the application window. 
+		Find "<code>//TUTORIAL: Add Example Panel</code>" in <code>MainPanel</code> and add the panel to <code>middleTab</code></span>
+	</li>
+	<pre class="brush: java">
+		public MainPanel(){
+			...
+			//TUTORIAL: Add ExamplePanel
+			ExamplePanel2 examplePane2 = new ExamplePanel2();
+			middleTab.add(examplePane2, "Example");
+			...
+		}
+	</pre>
+	
+	<li>
+		Run to see the panel added to the control panel.
+	</li>
+	<div class="figureBox">
+		<img src="figure/tutorial1/fig1_1.png">
+	</div>
+	
+	<li>
+		Promote the panel from a local variable to field so it can be accessed later.
+	</li>
+	<pre class="brush: java">
+		public ExamplePanel2 examplePane2;
+		
+		public MainPanel(){
+			...
+			//TUTORIAL: Add ExamplePanel
+			examplePane2 = new ExamplePanel2();
+			middleTab.add(examplePane2, "Example");
+			...
+		}
+	</pre>
+</ol>
+
+<h2>Creating a mediator</h2>
+<div class="textBox">
+	<p>
+		We do not add event handlers directly to the panel to handle interactions, but will create a mediator class that wraps the panel for that purpose.
+		This will keep the code clean by separating UI and PureMVC code. 
+		The mediator will also let this panel, which is a view in MVC, receive notifications from other views. 
+		See <code>edu.umd.cs.hcil.lifeflow.mvc.view.ExamplePanelMediator</code> for example code.
+	</p>
+</div>
+<ol class="instructions">
+	<li>
+		Create a new mediator class. The constructor passes the wrapped view component to the super constructor.
+	</li>
+	<pre class="brush: java">
+		public class ExamplePanel2Mediator extends ExtendedMediator&lt;ExamplePanel2>{
+		
+			private static final Logger logger = LoggerFactory.getLogger(ExamplePanel2Mediator.class);
+		
+			public ExamplePanel2Mediator(ExamplePanel2 viewComponent) {
+				super(viewComponent);
+			}
+		}		
+	</pre>
+	<li>
+		Let's add a basic action. Print something when the user click on <code>button1</code>. 
+		Add the code to the constructor.
+	</li>
+	<pre class="brush: java">
+		public ExamplePanel2Mediator(ExamplePanel2 viewComponent) {
+			...
+			ExamplePanel2 vc = viewComponent;
+	
+			vc.button1.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					System.out.println("Hello, world!");
+				}
+			});
+			...
+		}
+	</pre>
+	<li>
+		Add this mediator to the parent panel's mediator, in this case <code>MainPanelMediatro</code>.
+		Find "<code>//TUTORIAL: Add Example Mediator</code>" in <code>MainPanelMediator</code> 
+		and add the mediator.
+	</li>
+	<pre class="brush: java">
+	    public MainPanelMediator(MainPanel viewComponent) {
+	    	...
+			//TUTORIAL: Add Example Mediator
+			ExamplePanel2Mediator examplePane2Med = new ExamplePanel2Mediator(vc.examplePane2);
+			this.addChildMediator(examplePane2Med);
+			...
+		}
+	</pre>
+	
+	<li>
+		Run and click <code>button1</code> to see "Hello, world!" in the console.
+	</li>
+</ol>
+
+<h2>Sending notifications</h2>
+<div class="textBox">
+	<p>
+		In MVC pattern, each view is independent and do not know that other views exist.
+		However, when users perform an action in one view, that action can trigger changes in other views 
+		although the views do not know each other. 
+		To achieve this, we send notifications. 
+		By sending a notification, the <code>AppFacade</code> (or our mothership) will notify all mediators and commands that are registered to that notification.
+	</p>
+	<p>
+		Each notification is a unique <code>String</code>.
+		See <code>edu.umd.cs.hcil.lifeflow.mvc.NotificationTypeConstants</code> for a list of all notifications.
+	</p>
+	<ul>
+		<li><b>Mediator</b>: 
+			Each mediator can choose which notification it will handle. We will learn that in the next section.
+		</li>
+		<li><b>Command</b>: 
+			Commands are more complex or common actions that can be reused so we separate it into a class. 
+			For example, instead of doing a 20-step work every time, we can create <code>XCommand</code> that do the work
+			and register <code>XCommand</code> with notification <code>X_COMMAND</code>.
+			When we want to use the command, just send notification <code>X_COMMAND</code>.
+			See method <code>initializeController()</code>
+			in <code>edu.umd.cs.hcil.lifeflow.mvc.AppFacade</code> for a list of all commands.
+		</li>
+	</ul>
+</div>
+
+<h3>Using simple notification</h3>
+<div class="textBox">
+	<p>
+		Make the application exit when user click on <code>button2</code>.
+	</p>
+</div>
+<ol class="instructions">
+	<li>
+		Add the action to <code>button2</code> by calling <code>ExitCommand</code>.
+	</li>
+	<pre class="brush: java">
+		public ExamplePanel2Mediator(ExamplePanel2 viewComponent) {
+			...
+			vc.button2.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					sendNotification(EXIT);
+				}
+			});
+			...
+		}
+	</pre>
+	<li>
+		Run and click on <code>button2</code> to exit the application.
+	</li>
+</ol>
+
+<h3>Using proxy</h3>
+<div class="textBox">
+	<p>
+		Not only the mediator (view) can send notifications, but the proxy (model) can also send notifications. 
+	</p>
+	<p>
+		In the ideal MVC, no views and models will know about each other.
+		In LifeFlow, we relaxed this concept a bit by allowing a mediator (view) to know about proxy (model), 
+		so we can store a reference from mediator to the proxy of corresponding <code>WorkingDataSet</code>.
+		This allows direct manipulation to the <code>WorkingDataSet</code> without passing messages through the facade.
+		And when we use the <code>WorkingDataSet</code>'s methods, the methods will send notification automatically.
+	</p>
+	<p>
+		See <code>edu.umd.cs.hcil.lifeflow.mvc.model.WorkingDataSetProxy</code> for more details.
+	</p>
+	<p>
+		As an example, we will make the application select every record when the users click on <code>button3</code>. 
+	</p>
+</div>
+<ol class="instructions">
+	<li>
+		Change the super class from <code>ExtendedMediator</code> to <code>ExtendedMediatorWithWorkingData</code>.
+	</li>
+	<pre class="brush: java">
+		public class ExamplePanel2Mediator extends ExtendedMediatorWithWorkingData&lt;ExamplePanel2>{
+			...
+		}
+	</pre>
+	<li>
+		Add the action to <code>button3</code> that call a method of the <code>WorkingDataSet</code>.
+		This method (<code>select()</code>) will send notification (<code>WORKING_DATA_CHANGED_SELECTION</code>) automatically. 
+	</li>
+	<pre class="brush: java">
+		public ExamplePanel2Mediator(ExamplePanel2 viewComponent) {
+			...
+			vc.button3.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					getWorkingDataSet().select(SelectionMode.SELECT_ALL, null);
+				}
+			});
+			...
+		}
+	</pre>
+	<li>
+		Run and click on <code>button3</code> to see all records selected.
+	</li>
+</ol>
+
+<h2>Receiving notifications</h2>
+<div class="textBox">
+	<p>
+		In the previous section, we learned how to send notifications. 
+		Now we will learn how to listen to notifications and handle them. 
+	</p>
+</div>
+<ol class="instructions">
+	<li>
+		Add this method to specify which notifications this mediator is interested in.
+	</li>
+	<pre class="brush: java">
+		@Override
+		public String[] listNotificationInterests(){
+			return new String[]{WORKING_DATA_CHANGED_SELECTION};
+		}
+	</pre>
+
+	<li>
+		Add this method to specify how to handle each type of notifications.
+		Method <code>isNotificationForThisWorkingSet()</code> checks if the notification is for <code>WorkingDataSet</code> linked with this mediator.
+		Method <code>logNotificationHandling()</code> add message to the logs that the notification has been handled by this mediator. 
+		You can see it in the console. 
+	</li>
+	<pre class="brush: java">
+		@Override
+		public void handleNotification(INotification notification){
+			if(notification.getName().equals(WORKING_DATA_CHANGED_SELECTION))
+			{
+				if(this.isNotificationForThisWorkingSet(notification)){
+	        		logNotificationHandling(logger, notification);
+	
+					ExamplePanel2 vc = getViewComponent();
+					vc.label1.setText(getWorkingDataSet().getWorkingList().getNumSelectedRecords()+"");
+				}
+			}
+		}
+	</pre>
+
+	<li>
+		Run and see	<code>label1</code> changed according to number of selected records. 
+	</li>
+</ol>
+
+<!-- call javascript to create footer -->
+<script language="JavaScript">
+	createFooter();
+</script>
+<!-- end -->
+
+</body>
+
+</html>
